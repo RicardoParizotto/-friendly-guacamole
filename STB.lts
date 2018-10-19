@@ -1,75 +1,79 @@
 
+const TEMPO = 4
 
-const Threshold = 4
-const Nvoos = 1
-const M = 1
-const N = 3
 
-/*
-Uma mala de checkin não pode ir para a esteira de recolhimento (safety)
-*/
-assert C1 = [](insere_mala -> !(<>(carrega)))
+//Uma mala de checkin não pode ir para a esteira de recolhimento
+//todas as malas que vão passar para o avião, devem passar pela inspeção
+//se a mala foi pra ressalva, ela não deve ir para uma aeronave
+
 
 
 /*
-Uma mala pode estar sendo transportada pelo sistema de malas
-Ou ela pode ser entregue ao seu dono
-ou ela pode ser apreendida por ter um objeto malicioso
-*/
-MALA = ( chegada_checkin -> inspecao -> encaminha_voo -> END | chegada_voo -> inspecao -> CHEGADA_VOO ),
-CHEGADA_VOO = ( encaminha_voo -> END | encaminha_chegada -> MALA_RECEPCAO ),
-MALA_RECEPCAO = (recolhe -> END | objeto_perdido -> END ).
+COMPONENTES DO SISTEMA: 
 
-
-VOO = (carrega_mala -> decola -> VOO | pousa -> entrega -> VOO).
-
-/***************inicio do processamento de uma mala*******************/
-/*
-Uma mala pode entrar no sistema através do checkin
-ou através de um vooo de transferencia
+ 0 - ENTRADA
+ 1 - INSPECAO
+ 2 - SELECAO ( demux) 
+ 3 - ESTEIRA_RECOLHIMENTO
+ 4 - EMBARQUE
 */
 
-ENTRADA = ( cliente_checkin -> CHECKIN | transferencia_voo -> TRANSFERENCIA ),
-CHECKIN = ( adiciona_etiqueta -> entra_esteira -> INSPECAO -> asdasd),
-TRANSFERENCIA = ( entra_esteira -> INSPECAO -> ),
 
-/*
-A inspeção deve ser realizada sobre todas as malas que entram no sistema
-ela deve ser capaz de identificar
-*/
+MALA = (chegada_checkin -> MALA_INSPECAO  | chegada_voo -> SELECAO_CHEGADA_DE_VOO),
 
-INSPECAO = (nao_aprova -> confisca -> END | aprova -> SELECAO ),
+SELECAO_CHEGADA_DE_VOO = ( conexao -> MALA_INSPECAO | destino_final -> MALA_RECOLHIMENTO), 
 
-/*
-a seleção Lê a atiqueta de uma mala, que vai determinar qual o destino da mala
-*/
+MALA_INSPECAO = ( aceita -> voo -> END | rejeita_apreende -> END ),
 
-SELECAO = ( le_etiqueta -> ENCAMINHA ),
-
-/*
-Essa é especificação do mecanismo que encaminha uma mala para seu "destino" final
-O destino pode ser ou um voo, em que a mala "embarca" ou a esteira de recolhimento
-*/
-ENCAMINHA = ( embarque -> END | encaminha_esteira_recolhimento -> ESTEIRA_RECOLHIMENTO[0] ),
+MALA_RECOLHIMENTO = ( recolhida -> END | perdida -> END ).
 
 
-ESTEIRA_RECOLHIMENTO[t:0..N] = ( when (t < N) espera -> ESTEIRA_RECOLHIMENTO[t+1]
-                                 | when (t <= N) retirada -> END
-                                 | when (t == N) objeto_perdido -> END ).
-
-/*******************fim do processamento da mala*******************/
-
-/*
-essa é a espcificação para o setor de ressalva
-o setor de ressalva é modelado como um buffer
-*/
-RESSALVA (N=Threshold) = RESSALVA[0],
-RESSALVA[i:0..N] = (when (i < N) insere_mala -> RESSALVA[i+1]
-                  | when (i > 0) remove_mala -> RESSALVA[i-1]
-                  | when(i == N) alerta -> RESSALVA[i]).
+CHECKIN = (identifica_mala -> esteira_inspecao -> END).
 
 
-/*Essa é a composição do nosso sistema de tratamento de bagagens*/
-|| STB = ( m:MALA || e:ENTRADA || r:RESSALVA || v:VOO ), 
+
+INSPECAO = (chegada_inspecao -> INSPECIONA ),
+
+INSPECIONA = (aprova -> encaminha_seletor -> END | rejeita -> encaminha_ressalva -> END).
+
+
+
+
+SELECAO = (chegada_selecao -> le_identificacao -> DEMUX),
+
+DEMUX = ( esteira_enmbarque -> END | encaminha_esteira_recolhimento -> END).
+
+
+
+ESTEIRA_RECOLHIMENTO = (chega_esteira_recolhimento -> ESTEIRA_RECOLHIMENTO[0]),
+ESTEIRA_RECOLHIMENTO[t:0..TEMPO] = ( when (t <  TEMPO) espera -> ESTEIRA_RECOLHIMENTO[t+1]
+                                   | when (t <= TEMPO) retirada -> END
+                                   | when (t == TEMPO) objeto_perdido -> END ).
+
+
+
+ESTEIRA_EMBARQUE = (chega_esteira_embarque -> ESTEIRA_EMBARQUE[0]),
+ESTEIRA_EMBARQUE [t:0..TEMPO] = ( when (t <  TEMPO) espera -> ESTEIRA_EMBARQUE[t+1]
+                                   | when (t <= TEMPO) retirada -> END
+                                   | when (t == TEMPO) objeto_perdido -> END ).
+
+
+
+
+
+|| STB = ( m:MALA || c:CHECKIN || i:INSPECAO || s:SELECAO || er:ESTEIRA_RECOLHIMENTO)
+     /{m.chegada_checkin/c.identifica_mala,
+	   m.rejeita_apreende/i.rejeita,
+       m.aceita/i.aprova,  
+       m.voo/s.esteira_embarque,
+       c.esteira_inspecao/i.chegada_inspecao,
+       i.encaminha_seletor/s.chegada_selecao,
+       s.encaminha_esteira_recolhimento/er.chega_esteira_recolhimento}.
+
+
+
+
+
+
 
 

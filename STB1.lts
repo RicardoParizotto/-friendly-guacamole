@@ -1,0 +1,75 @@
+
+
+const Threshold = 4
+const Nvoos = 1
+const M = 1
+const N = 3
+
+/*
+Uma mala de checkin não pode ir para a esteira de recolhimento (safety)
+*/
+assert C1 = [](insere_mala -> !(<>(carrega)))
+
+
+/*
+Uma mala pode estar sendo transportada pelo sistema de malas
+Ou ela pode ser entregue ao seu dono
+ou ela pode ser apreendida por ter um objeto malicioso
+*/
+MALA = ( chegada_checkin -> inspecao -> encaminha_voo -> END | chegada_voo -> inspecao -> CHEGADA_VOO ),
+CHEGADA_VOO = ( encaminha_voo -> END | encaminha_chegada -> MALA_RECEPCAO ),
+MALA_RECEPCAO = (recolhe -> END | objeto_perdido -> END ).
+
+
+VOO = (carrega_mala -> decola -> VOO | pousa -> entrega -> VOO).
+
+/***************inicio do processamento de uma mala*******************/
+/*
+Uma mala pode entrar no sistema através do checkin
+ou através de um vooo de transferencia
+*/
+
+ENTRADA = ( cliente_checkin -> CHECKIN | transferencia_voo -> TRANSFERENCIA ),
+CHECKIN = ( adiciona_etiqueta -> entra_esteira -> INSPECAO -> asdasd),
+TRANSFERENCIA = ( entra_esteira -> INSPECAO -> ),
+
+/*
+A inspeção deve ser realizada sobre todas as malas que entram no sistema
+ela deve ser capaz de identificar
+*/
+
+INSPECAO = (nao_aprova -> confisca -> END | aprova -> SELECAO ),
+
+/*
+a seleção Lê a atiqueta de uma mala, que vai determinar qual o destino da mala
+*/
+
+SELECAO = ( le_etiqueta -> ENCAMINHA ),
+
+/*
+Essa é especificação do mecanismo que encaminha uma mala para seu "destino" final
+O destino pode ser ou um voo, em que a mala "embarca" ou a esteira de recolhimento
+*/
+ENCAMINHA = ( embarque -> END | encaminha_esteira_recolhimento -> ESTEIRA_RECOLHIMENTO[0] ),
+
+
+ESTEIRA_RECOLHIMENTO[t:0..N] = ( when (t < N) espera -> ESTEIRA_RECOLHIMENTO[t+1]
+                                 | when (t <= N) retirada -> END
+                                 | when (t == N) objeto_perdido -> END ).
+
+/*******************fim do processamento da mala*******************/
+
+/*
+essa é a espcificação para o setor de ressalva
+o setor de ressalva é modelado como um buffer
+*/
+RESSALVA (N=Threshold) = RESSALVA[0],
+RESSALVA[i:0..N] = (when (i < N) insere_mala -> RESSALVA[i+1]
+                  | when (i > 0) remove_mala -> RESSALVA[i-1]
+                  | when(i == N) alerta -> RESSALVA[i]).
+
+
+/*Essa é a composição do nosso sistema de tratamento de bagagens*/
+|| STB = ( m:MALA || e:ENTRADA || r:RESSALVA || v:VOO ), 
+
+
