@@ -1,11 +1,24 @@
-
 const TEMPO = 4
 
+/*fluente EM_TRANSITO é verdadeiro enquanto uma mala estiver sendo processada/encaminhada pelo sistema de bagagens*/
+fluent EM_TRANSITO = < {chegada_checkin, chegada_voo}, {encaminha_ressalva, chega_esteira_embarque, chega_esteira_recolhimento } > initially 1
 
-//Uma mala de checkin não pode ir para a esteira de recolhimento
+fluent MALA_APREENDIDA = <chegadada_inspecao, encaminha_ressalva> initially 0
+
+
+
+
+/*todas as malas chegam em algum lugar (vulgo, a mala não fica em um loop infinito no sistema)*/
+assert LOOP = [](EM_TRANSITO -> X(<>(!EM_TRANSITO)))
+
+/*Uma mala de checkin não pode ir para a esteira de recolhimento*/
+assert P1 = []((m.chegada_checkin -> X([](!er.chega_esteira_recolhimento))))   //essa ta sendo violada | Makas de checkin podem ser recolhidas LOL
+
 //todas as malas que vão passar para o avião, devem passar pela inspeção
-//se a mala foi pra ressalva, ela não deve ir para uma aeronave
 
+assert INSPEC = []((chegada_checkin || conexao) -> <>(chegada_inspecao))
+
+//se a mala foi apreendida, ela não deve ir para esteira de embarque
 
 
 /*
@@ -19,6 +32,8 @@ COMPONENTES DO SISTEMA:
 */
 
 
+/* processo que indica as possíveis transições da mala dentro do sistema*/
+
 MALA = (chegada_checkin -> MALA_INSPECAO  | chegada_voo -> SELECAO_CHEGADA_DE_VOO),
 
 SELECAO_CHEGADA_DE_VOO = ( conexao -> MALA_INSPECAO | destino_final -> MALA_RECOLHIMENTO), 
@@ -28,20 +43,25 @@ MALA_INSPECAO = ( aceita -> voo -> END | rejeita_apreende -> END ),
 MALA_RECOLHIMENTO = ( recolhida -> END | perdida -> END ).
 
 
+
+/*processo de checkin*/
+
 CHECKIN = (identifica_mala -> esteira_inspecao -> END).
 
 
+/*processo de inspeção*/
 
 INSPECAO = (chegada_inspecao -> INSPECIONA ),
 
 INSPECIONA = (aprova -> encaminha_seletor -> END | rejeita -> encaminha_ressalva -> END).
 
 
-
+/*processo de seleção de mala*/
 
 SELECAO = (chegada_selecao -> le_identificacao -> DEMUX),
 
 DEMUX = ( esteira_enmbarque -> END | encaminha_esteira_recolhimento -> END).
+
 
 
 
