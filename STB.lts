@@ -1,6 +1,21 @@
 const TEMPO = 4
-const THRESHOLD = 10
-const CAPACIDADE = 20
+const THRESHOLD = 3
+const CAPACIDADE = 5
+
+
+//Nenhuma mala advinda de check in atinge a esteira local - SAFETY;
+//essa esta sendo violado
+assert P1 = []( c_entra_sistema -> [](!v_encaminha_esteira_recolhimento))
+
+
+//Em algum momento as malas saem do sistema - LIVENESS;
+assert P2 = []((c_entra_sistema || v_entra_sistema) -> <> (v_saindo || c_saindo) )
+
+
+//Todas as malas, em algum momento, passam pela inspeção de segurança - LIVENESS;
+assert P3 = []((c_entra_sistema || v_entra_sistema) -> <> X (v_em_inspecao || c_em_inspecao))
+
+//------------------------------------FIM PROPRIEDADES-----------------------------
 
 MALA_CHECKIN = (c_entra_sistema -> c_identificada -> c_em_inspecao -> c_saindo -> END).
 MALA_VOO = (v_entra_sistema -> v_em_inspecao -> v_saindo -> END).
@@ -24,7 +39,9 @@ ESTEIRA_RECOLHIMENTO[t:0..TEMPO] = ( when (t <  TEMPO) espera -> ESTEIRA_RECOLHI
                                    | when (t == TEMPO) objeto_perdido -> END ).
 
 RESSALVA = (chega_mala -> RESSALVA[0]),
-RESSALVA[c:0..CAPACIDADE]= (when (THRESHOLD*8/10 == c) alarme -> chega_mala ->  RESSALVA[c+1] | when (CAPACIDADE == c) encaminha_exterior -> RESSALVA  | when (CAPACIDADE < c && THRESHOLD*8/10 != c) chega_mala -> RESSALVA[c+1]).
+RESSALVA[c:0..CAPACIDADE]= (when (THRESHOLD*8/10 == c) alarme -> chega_mala ->  RESSALVA[c+1]
+						  | when (CAPACIDADE == c) encaminha_exterior -> RESSALVA
+                          | when (CAPACIDADE > c && THRESHOLD*8/10 != c) chega_mala -> RESSALVA[c+1]).
 
 || STB = ( ec:ENTRADA_CHECKIN || ev:ENTRADA_VOO || ic:INSPECAO_CHECKIN || iv:INSPECAO_VOO || sc:SELECAO_CHECKIN || sv:SELECAO_VOO || er:ESTEIRA_RECOLHIMENTO || r:RESSALVA || mv:MALA_VOO || mc:MALA_CHECKIN)
 /{
