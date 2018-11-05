@@ -1,99 +1,45 @@
 const TEMPO = 4
+const THRESHOLD = 10
+const CAPACIDADE = 20
 
-/*fluente EM_TRANSITO é verdadeiro enquanto uma mala estiver sendo processada/encaminhada pelo sistema de bagagens*/
-fluent EM_TRANSITO = < {chegada_checkin, chegada_voo}, {encaminha_ressalva, chega_esteira_embarque, chega_esteira_recolhimento } > initially 1
+MALA_CHECKIN = (c_entra_sistema -> c_identificada -> c_em_inspecao -> c_saindo -> END).
+MALA_VOO = (v_entra_sistema -> v_em_inspecao -> v_saindo -> END).
 
-fluent MALA_APREENDIDA = <chegadada_inspecao, encaminha_ressalva> initially 0
+/*meio de entrada das bagagens*/
+ENTRADA_CHECKIN = (c_checkin -> c_identifica_mala -> c_encaminha_esteira_inspecao -> ENTRADA_CHECKIN).
+ENTRADA_VOO = (v_desembarque_mala -> v_encaminha_esteira_inspecao -> ENTRADA_VOO).
 
+/*inspecao*/
+INSPECAO_CHECKIN = (c_chega_inspecao -> c_inspeciona -> ( c_aprovado_inspecao -> c_encaminha_seletor -> INSPECAO_CHECKIN | c_reprovado_inspecao -> c_encaminha_ressalva -> INSPECAO_CHECKIN)).
+INSPECAO_VOO = (v_chega_inspecao -> v_inspeciona-> ( v_aprovado_inspecao -> v_encaminha_seletor -> INSPECAO_VOO | v_reprovado_inspecao -> v_encaminha_ressalva -> INSPECAO_VOO)).
 
+/*selecao*/
+SELECAO_CHECKIN = (c_chega_selecao -> c_le_identificador -> c_encaminha_voo -> SELECAO_CHECKIN).
+SELECAO_VOO = (v_chega_selecao -> v_le_identificador -> {v_encaminha_voo , v_encaminha_esteira_recolhimento} -> SELECAO_VOO).
 
-
-/*todas as malas chegam em algum lugar (vulgo, a mala não fica em um loop infinito no sistema)*/
-assert LOOP = [](EM_TRANSITO -> X(<>(!EM_TRANSITO)))
-
-/*Uma mala de checkin não pode ir para a esteira de recolhimento*/
-assert P1 = []((m.chegada_checkin -> X([](!er.chega_esteira_recolhimento))))   //essa ta sendo violada | Makas de checkin podem ser recolhidas LOL
-
-//todas as malas que vão passar para o avião, devem passar pela inspeção
-
-assert INSPEC = []((chegada_checkin || conexao) -> <>(chegada_inspecao))
-
-//se a mala foi apreendida, ela não deve ir para esteira de embarque
-
-
-/*
-COMPONENTES DO SISTEMA: 
-
- 0 - ENTRADA
- 1 - INSPECAO
- 2 - SELECAO ( demux) 
- 3 - ESTEIRA_RECOLHIMENTO
- 4 - EMBARQUE
-*/
-
-
-/* processo que indica as possíveis transições da mala dentro do sistema*/
-
-MALA = (chegada_checkin -> MALA_INSPECAO  | chegada_voo -> SELECAO_CHEGADA_DE_VOO),
-
-SELECAO_CHEGADA_DE_VOO = ( conexao -> MALA_INSPECAO | destino_final -> MALA_RECOLHIMENTO), 
-
-MALA_INSPECAO = ( aceita -> voo -> END | rejeita_apreende -> END ),
-
-MALA_RECOLHIMENTO = ( recolhida -> END | perdida -> END ).
-
-
-
-/*processo de checkin*/
-
-CHECKIN = (identifica_mala -> esteira_inspecao -> END).
-
-
-/*processo de inspeção*/
-
-INSPECAO = (chegada_inspecao -> INSPECIONA ),
-
-INSPECIONA = (aprova -> encaminha_seletor -> END | rejeita -> encaminha_ressalva -> END).
-
-
-/*processo de seleção de mala*/
-
-SELECAO = (chegada_selecao -> le_identificacao -> DEMUX),
-
-DEMUX = ( esteira_enmbarque -> END | encaminha_esteira_recolhimento -> END).
-
-
-
-
+/*esteira recolhimento*/
 ESTEIRA_RECOLHIMENTO = (chega_esteira_recolhimento -> ESTEIRA_RECOLHIMENTO[0]),
 ESTEIRA_RECOLHIMENTO[t:0..TEMPO] = ( when (t <  TEMPO) espera -> ESTEIRA_RECOLHIMENTO[t+1]
                                    | when (t <= TEMPO) retirada -> END
                                    | when (t == TEMPO) objeto_perdido -> END ).
 
+RESSALVA = (chega_mala -> RESSALVA[0]),
+RESSALVA[c:0..CAPACIDADE]= (when (THRESHOLD*8/10 == c) alarme -> chega_mala ->  RESSALVA[c+1] | when (CAPACIDADE == c) encaminha_exterior -> RESSALVA  | when (CAPACIDADE < c && THRESHOLD*8/10 != c) chega_mala -> RESSALVA[c+1]).
 
-
-ESTEIRA_EMBARQUE = (chega_esteira_embarque -> ESTEIRA_EMBARQUE[0]),
-ESTEIRA_EMBARQUE [t:0..TEMPO] = ( when (t <  TEMPO) espera -> ESTEIRA_EMBARQUE[t+1]
-                                   | when (t <= TEMPO) retirada -> END
-                                   | when (t == TEMPO) objeto_perdido -> END ).
-
-
-
-
-
-|| STB = ( m:MALA || c:CHECKIN || i:INSPECAO || s:SELECAO || er:ESTEIRA_RECOLHIMENTO)
-     /{m.chegada_checkin/c.identifica_mala,
-	   m.rejeita_apreende/i.rejeita,
-       m.aceita/i.aprova,  
-       m.voo/s.esteira_embarque,
-       c.esteira_inspecao/i.chegada_inspecao,
-       i.encaminha_seletor/s.chegada_selecao,
-       s.encaminha_esteira_recolhimento/er.chega_esteira_recolhimento}.
-
-
-
-
-
-
-
-
+|| STB = ( ec:ENTRADA_CHECKIN || ev:ENTRADA_VOO || ic:INSPECAO_CHECKIN || iv:INSPECAO_VOO || sc:SELECAO_CHECKIN || sv:SELECAO_VOO || er:ESTEIRA_RECOLHIMENTO || r:RESSALVA || mv:MALA_VOO || mc:MALA_CHECKIN)
+/{
+  ec.c_encaminha_esteira_inspecao/ic.c_chega_inspecao,
+  ev.v_encaminha_esteira_inspecao/iv.v_chega_inspecao,
+  ic.c_encaminha_seletor/sc.c_chega_selecao,
+  iv.v_encaminha_seletor/sv.v_chega_selecao,
+  ic.c_encaminha_ressalva/r.chega_mala,
+  iv.v_encaminha_ressalva/r.chega_mala,
+  sv.v_encaminha_esteira_recolhimento/er.chega_esteira_recolhimento,
+  mv.v_em_inspecao/iv.v_inspeciona,
+  mv.v_entra_sistema/ev.v_desembarque_mala,
+  {sv.v_encaminha_voo,er.retirada,er.objeto_perdido,iv.v_encaminha_ressalva}/mv.v_saindo,
+  mc.c_em_inspecao/ic.c_inspeciona,
+  mc.c_entra_sistema/ec.c_checkin,
+  mc.c_identificada/ec.c_identifica_mala,
+  {ic.c_encaminha_ressalva,mc.c_saindo}/sc.c_encaminha_voo
+}.
