@@ -3,6 +3,7 @@ const THRESHOLD = 3
 const CAPACIDADE = 5
 
 
+assert CheckSecurity =  [](c_entra_sistema -> (!c_encaminha_voo W (c_aprovado_inspecao)))
 //Nenhuma mala advinda de check in atinge a esteira local - SAFETY;
 //essa esta sendo violado
 assert P1 = []( c_entra_sistema -> [](!v_encaminha_esteira_recolhimento))
