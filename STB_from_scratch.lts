@@ -1,0 +1,53 @@
+const Tempo = 4
+
+// === SEÇÃO 1: ENTRADA NO STB ========================================================
+// Início: a mala entra no STB por checkin ou desembarca de um voo
+INICIO = (checkin_bagagem -> CHECKIN | desembarque_bagagem -> DESEMBARQUE),
+
+// Checkin: insere o identificador e envia para a inspeção
+CHECKIN = (insere_identificador -> encaminha_inspecao -> END),
+
+// Desembarque do voo: se for um voo de conexão, envia para a inspeção
+//					   se for o destino da bagagem, envia para esteira de recolhimento	
+DESEMBARQUE = (analisa_identificador -> (conexao_bagagem -> CONEXAO | destino_bagagem -> DESTINO)),
+CONEXAO = (encaminha_inspecao -> END),
+DESTINO = (encaminha_recolhimento -> END).
+// ====================================================================================
+
+// === SEÇÃO 2: INSPECAO ou RECOLHIMENTO ==============================================
+// O primeiro conjunto de esteiras representa a chegada na inspeção ou chegada na área de recolhimento
+ESTEIRA1 = (chegada_inspecao -> INSPECAO | chegada_recolhimento -> RECOLHIMENTO[0]),
+
+// Inspeção: se passar na inspeção, encaminha para seleção do embarque
+//           se não passar na inspeção, envia para área de ressalva
+INSPECAO = (realiza_inspecao -> (inspecao_ok -> INSPECAO_OK | inspecao_erro -> INSPECAO_ERRO)),
+INSPECAO_OK = (encaminha_selecao -> END),
+INSPECAO_ERRO = (encaminha_ressalva -> END),
+
+// Recolhimento: se a bagagem não for recolhida dentro do Tempo limite, ela é enviada para a ressalva
+RECOLHIMENTO[t:0..Tempo] = (when (t <  Tempo) espera -> RECOLHIMENTO[t+1]
+                           |when (t <= Tempo) recolhimento_mala -> END
+                           |when (t == Tempo) encaminha_ressalva -> END).
+// ====================================================================================
+
+// === SEÇÃO 3: EMBARQUE, RESSALVA ou RECOLHIMENTO ====================================
+// O segundo conjunto de esteiras encaminha a bagagem para o voo ou para a ressalva
+// **Fix deadlock -> sincronizar Esteira2 com final da Esteira1 em cenário de recolhimento
+ESTEIRA2 = (chegada_selecao -> SELECAO | chegada_ressalva -> RESSALVA | recolhimento_mala -> END),
+
+// Seleção: no processo de seleção, o identificador é utilizado para redirecionar a bagagem para o voo
+SELECAO = (leitura_identificador -> redireciona_bagagem -> carrega_voo -> END),
+
+// Ressalva: bagagens que chegam na ressalva são eventualmente retiradas do sistema
+RESSALVA = (remocao_bagagem -> END).
+// ====================================================================================
+
+|| STB = ( inicio::INICIO || esteira1::ESTEIRA1 || esteira2::ESTEIRA2 )
+/{
+	inicio.encaminha_inspecao / esteira1.chegada_inspecao,
+	inicio.encaminha_recolhimento / esteira1.chegada_recolhimento,
+    
+	esteira1.encaminha_selecao / esteira2.chegada_selecao,
+	esteira1.encaminha_ressalva / esteira2.chegada_ressalva,
+	esteira1.recolhimento_mala / esteira2.recolhimento_mala
+}.
