@@ -1,0 +1,74 @@
+const Tempo = 4
+const LimiteAlarme = 3
+const TamanhoRessalva = 5
+
+fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
+
+// Bagagens do checkin nunca v�o para esteira de recolhimento
+assert P1 = [](c.checkin_bagagem -> !er.chegada_recolhimento)
+
+// Bagagens que n�o passarem na inspe��o jamais s�o embarcadas
+assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
+
+// Bagagens devem passar na inspe��o antes de serem embarcadas
+property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
+
+// =====================================================================================================
+// === Modelagem das Bagagens ==========================================================================
+
+
+BAGAGEM_CHECKIN = (checkin -> inspeciona -> BAGAGEM_INSPEC),
+BAGAGEM_INSPEC = (maliciosa -> END | segura -> BAGAGEM_SELECIONA),
+BAGAGEM_SELECIONA = (despachada -> END). 
+
+
+// =====================================================================================================
+// === Componentes STB =================================================================================
+
+
+// Checkin
+CHECKIN = (checkin_bagagem -> coloca_identificador -> encaminha_inspecao -> CHECKIN).
+
+// Desembarque de bagagem 
+DESEMBARQUE = (chegada_voo -> (destino_bagagem -> DESTINO | conexao_bagagem -> CONEXAO)),
+DESTINO = (encaminha_recolhimento -> DESEMBARQUE),
+CONEXAO = (encaminha_inspecao -> DESEMBARQUE).
+
+// Inspecionamento
+INSPECAO = (chegada_inspecao -> (realiza_inspecao -> INSPECAO_OK | realiza_inspecao -> INSPECAO_ERRO)),
+INSPECAO_OK = (inspecao_ok -> encaminha_selecao -> INSPECAO),
+INSPECAO_ERRO = (inspecao_erro -> encaminha_ressalva -> INSPECAO).
+
+// Embarque de bagagem
+SELECAO = (chegada_selecao -> le_identificador -> encaminha_voo -> SELECAO).
+
+// Recolhimento da bagagem ap�s desembarque
+// Buffer para esteira de embarque e recolhimento
+ESTEIRA = (chegada_mala -> ESTEIRA[0]),
+ESTEIRA[i:0..Tempo] = (when (i < Tempo) espera -> ESTEIRA[i+1] 
+						  | when (i <= Tempo) recolhe_bagagem -> ESTEIRA
+						  | when (i == Tempo) encaminha_ressalva -> ESTEIRA).
+
+// Bagagens que falharam inspe��o ou foram abandonadas
+RESSALVA = RESSALVA[0],
+RESSALVA[n:0..TamanhoRessalva] = (
+	  when (n < TamanhoRessalva) chegada_ressalva[n] -> RESSALVA[n+1]
+	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
+
+// M�dulos do Sistema de Tratamento de Bagagens
+|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || r:RESSALVA || er:ESTEIRA || ev:ESTEIRA || bc:BAGAGEM_CHECKIN)
+/{
+	//sincronizações do sistema de malas-------------------------------------------------
+	{c.encaminha_inspecao, d.encaminha_inspecao}  / i.chegada_inspecao,
+	d.encaminha_recolhimento / er.chegada_mala,
+	s.encaminha_voo / ev.chegada_mala,
+	i.encaminha_selecao / s.chegada_selecao,
+	{i.encaminha_ressalva, er.encaminha_ressalva, ev.encaminha_ressalva} / r.chegada_ressalva,
+    //----aqui começam as sincronizações com as bagagens------------------------------------
+    //----sincronização da bagagem de checkin
+	bc.checkin / c.checkin_bagagem,
+    bc.inspeciona / i.chegada_inspecao,
+    bc.maliciosa / i.inspecao_erro,
+    bc.segura / i.inspecao_ok,
+    bc.despachada / s.encaminha_voo    
+}.
