@@ -1,53 +1,56 @@
 const Tempo = 4
+const LimiteAlarme = 3
+const TamanhoRessalva = 5
 
-// === SEÇÃO 1: ENTRADA NO STB ========================================================
-// Início: a mala entra no STB por checkin ou desembarca de um voo
-INICIO = (checkin_bagagem -> CHECKIN | desembarque_bagagem -> DESEMBARQUE),
+fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
 
-// Checkin: insere o identificador e envia para a inspeção
-CHECKIN = (insere_identificador -> encaminha_inspecao -> END),
+// Bagagens do checkin nunca vão para esteira de recolhimento
+assert P1 = [](c.checkin_bagagem -> !er.chegada_recolhimento)
 
-// Desembarque do voo: se for um voo de conexão, envia para a inspeção
-//					   se for o destino da bagagem, envia para esteira de recolhimento	
-DESEMBARQUE = (analisa_identificador -> (conexao_bagagem -> CONEXAO | destino_bagagem -> DESTINO)),
-CONEXAO = (encaminha_inspecao -> END),
-DESTINO = (encaminha_recolhimento -> END).
-// ====================================================================================
+// Bagagens que não passarem na inspeção jamais são embarcadas
+assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
 
-// === SEÇÃO 2: INSPECAO ou RECOLHIMENTO ==============================================
-// O primeiro conjunto de esteiras representa a chegada na inspeção ou chegada na área de recolhimento
-ESTEIRA1 = (chegada_inspecao -> INSPECAO | chegada_recolhimento -> RECOLHIMENTO[0]),
+// Bagagens devem passar na inspeção antes de serem embarcadas
+property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
 
-// Inspeção: se passar na inspeção, encaminha para seleção do embarque
-//           se não passar na inspeção, envia para área de ressalva
-INSPECAO = (realiza_inspecao -> (inspecao_ok -> INSPECAO_OK | inspecao_erro -> INSPECAO_ERRO)),
-INSPECAO_OK = (encaminha_selecao -> END),
-INSPECAO_ERRO = (encaminha_ressalva -> END),
+// =====================================================================================================
+// === Componentes STB =================================================================================
 
-// Recolhimento: se a bagagem não for recolhida dentro do Tempo limite, ela é enviada para a ressalva
-RECOLHIMENTO[t:0..Tempo] = (when (t <  Tempo) espera -> RECOLHIMENTO[t+1]
-                           |when (t <= Tempo) recolhimento_mala -> END
-                           |when (t == Tempo) encaminha_ressalva -> END).
-// ====================================================================================
+// Checkin
+CHECKIN = (checkin_bagagem -> coloca_identificador -> encaminha_inspecao -> CHECKIN).
 
-// === SEÇÃO 3: EMBARQUE, RESSALVA ou RECOLHIMENTO ====================================
-// O segundo conjunto de esteiras encaminha a bagagem para o voo ou para a ressalva
-// **Fix deadlock -> sincronizar Esteira2 com final da Esteira1 em cenário de recolhimento
-ESTEIRA2 = (chegada_selecao -> SELECAO | chegada_ressalva -> RESSALVA | recolhimento_mala -> END),
+// Desembarque de bagagem 
+DESEMBARQUE = (chegada_voo -> (destino_bagagem -> DESTINO | conexao_bagagem -> CONEXAO)),
+DESTINO = (encaminha_recolhimento -> DESEMBARQUE),
+CONEXAO = (encaminha_inspecao -> DESEMBARQUE).
 
-// Seleção: no processo de seleção, o identificador é utilizado para redirecionar a bagagem para o voo
-SELECAO = (leitura_identificador -> redireciona_bagagem -> carrega_voo -> END),
+// Inspecionamento
+INSPECAO = (chegada_inspecao -> (realiza_inspecao -> INSPECAO_OK | realiza_inspecao -> INSPECAO_ERRO)),
+INSPECAO_OK = (inspecao_ok -> encaminha_selecao -> INSPECAO),
+INSPECAO_ERRO = (inspecao_erro -> encaminha_ressalva -> INSPECAO).
 
-// Ressalva: bagagens que chegam na ressalva são eventualmente retiradas do sistema
-RESSALVA = (remocao_bagagem -> END).
-// ====================================================================================
+// Embarque de bagagem
+SELECAO = (chegada_selecao -> le_identificador -> encaminha_voo -> SELECAO).
 
-|| STB = ( inicio::INICIO || esteira1::ESTEIRA1 || esteira2::ESTEIRA2 )
+// Recolhimento da bagagem após desembarque
+RECOLHIMENTO = (chegada_recolhimento -> RECOLHIMENTO[0]),
+RECOLHIMENTO[i:0..Tempo] = (when (i < Tempo) espera -> RECOLHIMENTO[i+1] 
+						  | when (i <= Tempo) recolhe_bagagem -> RECOLHIMENTO
+						  | when (i == Tempo) encaminha_ressalva -> RECOLHIMENTO).
+
+// Bagagens que falharam inspeção ou foram abandonadas
+RESSALVA = RESSALVA[0],
+RESSALVA[n:0..TamanhoRessalva] = (
+	  when (n < TamanhoRessalva) chegada_ressalva[n] -> RESSALVA[n+1]
+	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
+
+// Módulos do Sistema de Tratamento de Bagagens
+|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || er:RECOLHIMENTO || r:RESSALVA )
 /{
-	inicio.encaminha_inspecao / esteira1.chegada_inspecao,
-	inicio.encaminha_recolhimento / esteira1.chegada_recolhimento,
-    
-	esteira1.encaminha_selecao / esteira2.chegada_selecao,
-	esteira1.encaminha_ressalva / esteira2.chegada_ressalva,
-	esteira1.recolhimento_mala / esteira2.recolhimento_mala
+	{c.encaminha_inspecao, d.encaminha_inspecao}  / i.chegada_inspecao,
+
+	d.encaminha_recolhimento / er.chegada_recolhimento,
+	
+	i.encaminha_selecao / s.chegada_selecao,
+	{i.encaminha_ressalva, er.encaminha_ressalva} / r.chegada_ressalva
 }.
