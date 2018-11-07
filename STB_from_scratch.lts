@@ -4,13 +4,13 @@ const TamanhoRessalva = 5
 
 fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
 
-// Bagagens do checkin nunca vão para esteira de recolhimento
+// Bagagens do checkin nunca vï¿½o para esteira de recolhimento
 assert P1 = [](c.checkin_bagagem -> !er.chegada_recolhimento)
 
-// Bagagens que não passarem na inspeção jamais são embarcadas
+// Bagagens que nï¿½o passarem na inspeï¿½ï¿½o jamais sï¿½o embarcadas
 assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
 
-// Bagagens devem passar na inspeção antes de serem embarcadas
+// Bagagens devem passar na inspeï¿½ï¿½o antes de serem embarcadas
 property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
 
 // =====================================================================================================
@@ -32,25 +32,26 @@ INSPECAO_ERRO = (inspecao_erro -> encaminha_ressalva -> INSPECAO).
 // Embarque de bagagem
 SELECAO = (chegada_selecao -> le_identificador -> encaminha_voo -> SELECAO).
 
-// Recolhimento da bagagem após desembarque
-RECOLHIMENTO = (chegada_recolhimento -> RECOLHIMENTO[0]),
-RECOLHIMENTO[i:0..Tempo] = (when (i < Tempo) espera -> RECOLHIMENTO[i+1] 
-						  | when (i <= Tempo) recolhe_bagagem -> RECOLHIMENTO
-						  | when (i == Tempo) encaminha_ressalva -> RECOLHIMENTO).
+// Recolhimento da bagagem apï¿½s desembarque
+// Buffer para esteira de embarque e recolhimento
+ESTEIRA = (chegada_mala -> ESTEIRA[0]),
+ESTEIRA[i:0..Tempo] = (when (i < Tempo) espera -> ESTEIRA[i+1] 
+						  | when (i <= Tempo) recolhe_bagagem -> ESTEIRA
+						  | when (i == Tempo) encaminha_ressalva -> ESTEIRA).
 
-// Bagagens que falharam inspeção ou foram abandonadas
+// Bagagens que falharam inspeï¿½ï¿½o ou foram abandonadas
 RESSALVA = RESSALVA[0],
 RESSALVA[n:0..TamanhoRessalva] = (
 	  when (n < TamanhoRessalva) chegada_ressalva[n] -> RESSALVA[n+1]
 	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
 
-// Módulos do Sistema de Tratamento de Bagagens
-|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || er:RECOLHIMENTO || r:RESSALVA )
+// Mï¿½dulos do Sistema de Tratamento de Bagagens
+|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || r:RESSALVA || er:ESTEIRA || ev:ESTEIRA )
 /{
 	{c.encaminha_inspecao, d.encaminha_inspecao}  / i.chegada_inspecao,
 
-	d.encaminha_recolhimento / er.chegada_recolhimento,
-	
+	d.encaminha_recolhimento / er.chegada_mala,
+	s.encaminha_voo / ev.chegada_mala,
 	i.encaminha_selecao / s.chegada_selecao,
-	{i.encaminha_ressalva, er.encaminha_ressalva} / r.chegada_ressalva
+	{i.encaminha_ressalva, er.encaminha_ressalva, ev.encaminha_ressalva} / r.chegada_ressalva
 }.
