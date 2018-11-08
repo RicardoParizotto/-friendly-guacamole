@@ -1,20 +1,24 @@
 const Tempo = 4
-const LimiteAlarme = 3
-const TamanhoRessalva = 5
+const LimiteAlarme = 1
+const TamanhoRessalva = 2
 
-fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
+//fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
 
-// Bagagens do checkin nunca vï¿½o para esteira de recolhimento
-assert P1 = [](c.checkin_bagagem -> !er.chegada_recolhimento)
+// Bagagens de checkin e de conexão não devem ser encaminhadas para esteira de recolhimento
+assert RecolheApenasDestino = []({c.checkin_bagagem, d.conexao_bagagem} -> (!d.encaminha_recolhimento W {c.checkin_bagagem, d.chegada_voo}))
 
-// Bagagens que nï¿½o passarem na inspeï¿½ï¿½o jamais sï¿½o embarcadas
-assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
+// Bagagens que não passarem na inspeção jamais são embarcadas
+assert RessalvaInspecao = [](i.inspecao_erro -> (!s.encaminha_voo W r.retirada_ressalva))
 
-// Bagagens devem passar na inspeï¿½ï¿½o antes de serem embarcadas
-property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
+// Bagagens devem passar na inspeção antes de serem embarcadas
+property EmbarqueSeguro = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
+
+// Bagagem não fica presa dentro do sistema
+property FluxoBagagem = ({c.checkin_bagagem, d.chegada_voo} -> {s.encaminha_voo, er.recolhe_bagagem, r.retirada_ressalva} -> FluxoBagagem).
 
 // =====================================================================================================
 // === Componentes STB =================================================================================
+BAGAGEM = (entra_sistema -> sai_sistema -> BAGAGEM).
 
 // Checkin
 CHECKIN = (checkin_bagagem -> coloca_identificador -> encaminha_inspecao -> CHECKIN).
@@ -25,33 +29,37 @@ DESTINO = (encaminha_recolhimento -> DESEMBARQUE),
 CONEXAO = (encaminha_inspecao -> DESEMBARQUE).
 
 // Inspecionamento
-INSPECAO = (chegada_inspecao -> (realiza_inspecao -> INSPECAO_OK | realiza_inspecao -> INSPECAO_ERRO)),
-INSPECAO_OK = (inspecao_ok -> encaminha_selecao -> INSPECAO),
-INSPECAO_ERRO = (inspecao_erro -> encaminha_ressalva -> INSPECAO).
+INSPECAO = (chegada_inspecao -> (inspecao_ok -> encaminha_selecao -> INSPECAO | inspecao_erro -> encaminha_ressalva -> INSPECAO)).
 
 // Embarque de bagagem
 SELECAO = (chegada_selecao -> le_identificador -> encaminha_voo -> SELECAO).
 
-// Recolhimento da bagagem apï¿½s desembarque
-// Buffer para esteira de embarque e recolhimento
-ESTEIRA = (chegada_mala -> ESTEIRA[0]),
-ESTEIRA[i:0..Tempo] = (when (i < Tempo) espera -> ESTEIRA[i+1] 
-						  | when (i <= Tempo) recolhe_bagagem -> ESTEIRA
-						  | when (i == Tempo) encaminha_ressalva -> ESTEIRA).
+// Recolhimento da bagagem após desembarque
+RECOLHIMENTO = (chegada_recolhimento -> RECOLHIMENTO[0]),
+RECOLHIMENTO[i:0..Tempo] = (when (i < Tempo) espera -> RECOLHIMENTO[i+1] 
+						  | when (i <= Tempo) recolhe_bagagem -> RECOLHIMENTO
+						  | when (i == Tempo) tempo_esgotado -> encaminha_ressalva -> RECOLHIMENTO).
 
-// Bagagens que falharam inspeï¿½ï¿½o ou foram abandonadas
-RESSALVA = RESSALVA[0],
-RESSALVA[n:0..TamanhoRessalva] = (
-	  when (n < TamanhoRessalva) chegada_ressalva[n] -> RESSALVA[n+1]
-	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
+// Bagagens que falharam inspeção ou foram abandonadas
+RESSALVA = (chegada_ressalva -> retirada_ressalva -> RESSALVA).
+//RESSALVA[n:0..TamanhoRessalva] = (
+//	  when (n < TamanhoRessalva) chegada_ressalva[n] -> RESSALVA[n+1]
+//	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
 
-// Mï¿½dulos do Sistema de Tratamento de Bagagens
-|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || r:RESSALVA || er:ESTEIRA || ev:ESTEIRA )
+// Módulos do Sistema de Tratamento de Bagagens
+|| STB = ( b:BAGAGEM || c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || er:RECOLHIMENTO || r:RESSALVA )
 /{
+	// entrada da bagagem no sistema
+	{c.checkin_bagagem, d.chegada_voo} / b.entra_sistema,
+
 	{c.encaminha_inspecao, d.encaminha_inspecao}  / i.chegada_inspecao,
 
-	d.encaminha_recolhimento / er.chegada_mala,
-	s.encaminha_voo / ev.chegada_mala,
+	d.encaminha_recolhimento / er.chegada_recolhimento,
+	
 	i.encaminha_selecao / s.chegada_selecao,
-	{i.encaminha_ressalva, er.encaminha_ressalva, ev.encaminha_ressalva} / r.chegada_ressalva
+
+	{i.encaminha_ressalva, er.encaminha_ressalva} / r.chegada_ressalva,
+
+	// saida da bagagem no sistema
+	{s.encaminha_voo, er.recolhe_bagagem, r.retirada_ressalva} / b.sai_sistema
 }.
