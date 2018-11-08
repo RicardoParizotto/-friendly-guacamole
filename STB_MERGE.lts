@@ -5,15 +5,19 @@ const TamanhoRessalva = 5
 fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
 
 // Bagagens do checkin nunca v�o para esteira de recolhimento
-assert P1 = [](b.checkin-> !er.chegada_recolhimento)
+//assert P1 = [](b.checkin-> !er.chegada_recolhimento)
 
 // Bagagens que n�o passarem na inspe��o jamais s�o embarcadas
-assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
+//assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
 
-assert CheckSecurity =  [](bc.c_entra_sistema -> <> i.realiza_inspecao)
+//assert SemLoops2 = [](v_entra_sistema -> <> v_saindo)
+
+//=====PROPRIEDADES DO SISTEMA==============================================
+
+assert CheckSecurity =  []((bc.c_entra_sistema || bv.v_entra_sistema) -> <> i.realiza_inspecao)
 
 //Em algum momento as malas saem do sistema - LIVENESS;
-assert SemLoops = []((c_entra_sistema -> <> c_saindo) && (v_entra_sistema -> <> v_saindo))
+assert SemLoops = [](c_entra_sistema -> <> c_saindo) 
 
 // Bagagens devem passar na inspe��o antes de serem embarcadas
 property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
