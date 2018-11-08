@@ -5,10 +5,15 @@ const TamanhoRessalva = 5
 fluent AlertaRessalva = <r.chegada_ressalva[LimiteAlarme], r.retirada_ressalva[LimiteAlarme]> initially 0
 
 // Bagagens do checkin nunca v�o para esteira de recolhimento
-assert P1 = [](c.checkin_bagagem -> !er.chegada_recolhimento)
+assert P1 = [](b.checkin-> !er.chegada_recolhimento)
 
 // Bagagens que n�o passarem na inspe��o jamais s�o embarcadas
 assert P2 = [](i.inspecao_erro -> !s.encaminha_voo)
+
+assert CheckSecurity =  [](bc.c_entra_sistema -> <> i.realiza_inspecao)
+
+//Em algum momento as malas saem do sistema - LIVENESS;
+assert SemLoops = []((c_entra_sistema -> <> c_saindo) && (v_entra_sistema -> <> v_saindo))
 
 // Bagagens devem passar na inspe��o antes de serem embarcadas
 property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> s.encaminha_voo -> Embarque).
@@ -16,11 +21,9 @@ property Embarque = ({c.checkin_bagagem, d.conexao_bagagem} -> i.inspecao_ok -> 
 // =====================================================================================================
 // === Modelagem das Bagagens ==========================================================================
 
-
-BAGAGEM_CHECKIN = (checkin -> inspeciona -> BAGAGEM_INSPEC),
-BAGAGEM_INSPEC = (maliciosa -> END | segura -> BAGAGEM_SELECIONA),
-BAGAGEM_SELECIONA = (despachada -> END). 
-
+BAGAGEM_CHECKIN = (c_entra_sistema -> c_identificada -> c_em_inspecao -> c_saindo -> END).
+BAGAGEM_CONEX = (v_entra_sistema -> v_em_inspecao -> v_saindo -> END).
+BAGAGEM_DESTINO = (d_entra_sistema -> d_destino_bagagem -> d_saindo -> END).
 
 // =====================================================================================================
 // === Componentes STB =================================================================================
@@ -56,7 +59,7 @@ RESSALVA[n:0..TamanhoRessalva] = (
 	| when (n > 0) retirada_ressalva[n] -> RESSALVA[n-1]).
 
 // M�dulos do Sistema de Tratamento de Bagagens
-|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || r:RESSALVA || er:ESTEIRA || ev:ESTEIRA || bc:BAGAGEM_CHECKIN)
+|| STB = ( c:CHECKIN || d:DESEMBARQUE || i:INSPECAO || s:SELECAO || r:RESSALVA || er:ESTEIRA || ev:ESTEIRA || bc:BAGAGEM_CHECKIN || bv: BAGAGEM_CONEX || bd:BAGAGEM_DESTINO)
 /{
 	//sincronizações do sistema de malas-------------------------------------------------
 	{c.encaminha_inspecao, d.encaminha_inspecao}  / i.chegada_inspecao,
@@ -66,9 +69,17 @@ RESSALVA[n:0..TamanhoRessalva] = (
 	{i.encaminha_ressalva, er.encaminha_ressalva, ev.encaminha_ressalva} / r.chegada_ressalva,
     //----aqui começam as sincronizações com as bagagens------------------------------------
     //----sincronização da bagagem de checkin
-	bc.checkin / c.checkin_bagagem,
-    bc.inspeciona / i.chegada_inspecao,
-    bc.maliciosa / i.inspecao_erro,
-    bc.segura / i.inspecao_ok,
-    bc.despachada / s.encaminha_voo    
+	bc.c_entra_sistema / c.checkin_bagagem,
+    bc.c_identificada / c.coloca_identificador,
+    bc.c_em_inspecao / i.realiza_inspecao, 
+    bc.c_saindo / s.encaminha_voo,
+
+    //---sincronizando as bagagens de desembarque
+    bv.v_entra_sistema / d.chegada_voo, 
+    bv.v_em_inspecao / i.realiza_inspecao,
+    bv.v_saindo / s.encaminha_voo,
+    //---sincronizando as bagagens de destino final
+    bd.d_entra_sistema / d.chegada_voo,
+    bd.d_destino_bagagem / d.destino_bagagem,
+    {er.recolhe_bagagem, er.encaminha_ressalva}/bd.d_saindo //essa ressalva tem que ser achados e perdidos. A ressalva é para os inseguros
 }.
