@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="false" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="defMala;" org.eventb.core.predicate="mala∈malas" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.axiom#_NGdgAPcEEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="defEstado;" org.eventb.core.predicate="estadoMala∈malas → local" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.axiom#_NGdgAfcEEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="defQuantidade;" org.eventb.core.predicate="quantidadeMalasRessalva∈ℕ" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.axiom#_NGdgAvcEEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="*" org.eventb.core.label="defRounds;" org.eventb.core.predicate="round∈ℕ" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.axiom#_NGeHEPcEEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scConstant name="estadoMala" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.constant#_NGcR4fcEEei_8e6bqqB-Eg" org.eventb.core.type="ℙ(malas×local)"/>
+<org.eventb.core.scCarrierSet name="local" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.carrierSet#_NGbq0PcEEei_8e6bqqB-Eg" org.eventb.core.type="ℙ(local)"/>
+<org.eventb.core.scConstant name="mala" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.constant#_NGbq0vcEEei_8e6bqqB-Eg" org.eventb.core.type="malas"/>
+<org.eventb.core.scCarrierSet name="malas" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.carrierSet#_NGbDwPcEEei_8e6bqqB-Eg" org.eventb.core.type="ℙ(malas)"/>
+<org.eventb.core.scConstant name="quantidadeMalasRessalva" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.constant#_NGcR4vcEEei_8e6bqqB-Eg" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scCarrierSet name="rastroMala" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.carrierSet#_NGbq0fcEEei_8e6bqqB-Eg" org.eventb.core.type="ℙ(rastroMala)"/>
+<org.eventb.core.scConstant name="round" org.eventb.core.source="/STB/changeMe.buc|org.eventb.core.contextFile#changeMe|org.eventb.core.constant#_ea1f8PcGEei_8e6bqqB-Eg" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>
