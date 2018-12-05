@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scMachineFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scSeesContext name="'" org.eventb.core.scTarget="/STB/ctx0.bcc" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.seesContext#_pYfIEPitEei_8e6bqqB-Eg"/>
+<org.eventb.core.scInternalContext name="ctx0">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecPirEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecfirEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="thm1" org.eventb.core.predicate="∃x⦂ℤ·x∈{1,2,3}⇒x&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecvirEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scAxiom name="*" org.eventb.core.label="thm2" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒x&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrec_irEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scAxiom name="+" org.eventb.core.label="thm3" org.eventb.core.predicate="∃x⦂ℤ·x∈{1,2,3}∧x∈(∅ ⦂ ℙ(ℤ))⇒x&lt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icredPirEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scConstant name="threshold" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.constant#_icq3YPirEei_8e6bqqB-Eg" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scInternalContext>
+<org.eventb.core.scInvariant name="ctx1" org.eventb.core.label="inv1" org.eventb.core.predicate="n∈ℕ" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_pYfIE_itEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scInvariant name="ctx2" org.eventb.core.label="inv2" org.eventb.core.predicate="n≤threshold" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_pYfIFPitEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scInvariant name="ctx3" org.eventb.core.label="thm1" org.eventb.core.predicate="n&gt;0∨n&lt;threshold" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_pYfIFfitEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scVariable name="n" org.eventb.core.abstract="false" org.eventb.core.concrete="true" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.variable#_pYfIEvitEei_8e6bqqB-Eg" org.eventb.core.type="ℤ"/>
+<org.eventb.core.scEvent name="ctx4" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'">
+<org.eventb.core.scAction name="'" org.eventb.core.assignment="n ≔ 0" org.eventb.core.label="act1" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'|org.eventb.core.action#_pYfIEfitEei_8e6bqqB-Eg"/>
+</org.eventb.core.scEvent>
+<org.eventb.core.scEvent name="ctx5" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="STB_out" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg">
+<org.eventb.core.scGuard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="n&lt;threshold" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvIPitEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAction name="(" org.eventb.core.assignment="n ≔ n+1" org.eventb.core.label="act1" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg|org.eventb.core.action#_pYfvIfitEei_8e6bqqB-Eg"/>
+</org.eventb.core.scEvent>
+<org.eventb.core.scEvent name="ctx6" org.eventb.core.accurate="true" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="STB_in" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg">
+<org.eventb.core.scGuard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="n&gt;0" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvI_itEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAction name="(" org.eventb.core.assignment="n ≔ n − 1" org.eventb.core.label="act1" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg|org.eventb.core.action#_pYfvJPitEei_8e6bqqB-Eg"/>
+</org.eventb.core.scEvent>
+</org.eventb.core.scMachineFile>

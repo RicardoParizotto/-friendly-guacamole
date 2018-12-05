@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544028816863" org.eventb.texttools.text_representation="context ctx0&#10;&#10;constants threshold&#10;&#10;axioms&#10;  @axm1 threshold ∈ ℕ&#10;  @axm2 threshold &gt; 0&#10;&#10;  theorem @thm1 ∃x· x ∈ {1,2,3}  ⇒  x &gt; 0&#10;  theorem @thm2 ∀x· x ∈ {1,2,3}  ⇒  x &gt; 0&#10;  theorem @thm3 ∃x· x ∈ {1,2,3} ∧ x ∈ ∅  ⇒  x &lt; 0&#10;&#10;end&#10;&#10;" version="3">
+<org.eventb.core.constant name="_icq3YPirEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.identifier="threshold"/>
+<org.eventb.core.axiom name="_icrecPirEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold ∈ ℕ"/>
+<org.eventb.core.axiom name="_icrecfirEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold &gt; 0"/>
+<org.eventb.core.axiom name="_icrecvirEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="thm1" org.eventb.core.predicate="∃x· x ∈ {1,2,3}  ⇒  x &gt; 0" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="_icrec_irEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="thm2" org.eventb.core.predicate="∀x· x ∈ {1,2,3}  ⇒  x &gt; 0" org.eventb.core.theorem="true"/>
+<org.eventb.core.axiom name="_icredPirEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="thm3" org.eventb.core.predicate="∃x· x ∈ {1,2,3} ∧ x ∈ ∅  ⇒  x &lt; 0" org.eventb.core.theorem="true"/>
+</org.eventb.core.contextFile>

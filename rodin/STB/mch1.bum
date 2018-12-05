@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544027351898" org.eventb.texttools.text_representation="machine mch_changeme sees changeMe&#10;&#10;variables&#10;&#9;quantidadeMalas&#10;&#9;quantidade_malas_ressalva&#10;&#10;invariants&#10;  @inv1 n∈ℕ // number of baggage&#10;  @inv2 n≤d&#10;  theorem @thm1 n&gt;0 ∨ n&lt;d&#10;&#10;&#10;events&#10;  event INITIALISATION&#10;     then&#10;        @qtdMalas quantidadeMalas ≔ ∅&#10;        @malasRessalva currentMsgs ≔ ∅&#10;  end&#10;end&#10;" version="5">
+<org.eventb.core.seesContext name="_8QE00PfLEei_8e6bqqB-Eg" org.eventb.core.target="ctx1"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_5ddH4PiqEei_8e6bqqB-Eg" org.eventb.core.assignment="quantidadeMalas ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="qtdMalas"/>
+<org.eventb.core.action name="_5ddu8PiqEei_8e6bqqB-Eg" org.eventb.core.assignment="currentMsgs ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="malasRessalva"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="_8QE00ffLEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.identifier="quantidadeMalas"/>
+<org.eventb.core.variable name="_ANa0IPfMEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.identifier="quantidade_malas_ressalva"/>
+<org.eventb.core.invariant name="_5ddu8fiqEei_8e6bqqB-Eg" org.eventb.core.comment="number of baggage" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="n∈ℕ"/>
+<org.eventb.core.invariant name="_5ddu8viqEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="n≤d"/>
+<org.eventb.core.invariant name="_5ddu8_iqEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="thm1" org.eventb.core.predicate="n&gt;0 ∨ n&lt;d" org.eventb.core.theorem="true"/>
+</org.eventb.core.machineFile>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd">
+<org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecPirEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecfirEei_8e6bqqB-Eg" org.eventb.core.theorem="false"/>
+<org.eventb.core.scAxiom name=")" org.eventb.core.label="thm1" org.eventb.core.predicate="∃x⦂ℤ·x∈{1,2,3}⇒x&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrecvirEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scAxiom name="*" org.eventb.core.label="thm2" org.eventb.core.predicate="∀x⦂ℤ·x∈{1,2,3}⇒x&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icrec_irEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scAxiom name="+" org.eventb.core.label="thm3" org.eventb.core.predicate="∃x⦂ℤ·x∈{1,2,3}∧x∈(∅ ⦂ ℙ(ℤ))⇒x&lt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_icredPirEei_8e6bqqB-Eg" org.eventb.core.theorem="true"/>
+<org.eventb.core.scConstant name="threshold" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.constant#_icq3YPirEei_8e6bqqB-Eg" org.eventb.core.type="ℤ"/>
+</org.eventb.core.scContextFile>
