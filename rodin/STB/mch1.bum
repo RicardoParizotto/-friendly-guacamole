@@ -1,13 +1,39 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544027351898" org.eventb.texttools.text_representation="machine mch_changeme sees changeMe&#10;&#10;variables&#10;&#9;quantidadeMalas&#10;&#9;quantidade_malas_ressalva&#10;&#10;invariants&#10;  @inv1 n∈ℕ // number of baggage&#10;  @inv2 n≤d&#10;  theorem @thm1 n&gt;0 ∨ n&lt;d&#10;&#10;&#10;events&#10;  event INITIALISATION&#10;     then&#10;        @qtdMalas quantidadeMalas ≔ ∅&#10;        @malasRessalva currentMsgs ≔ ∅&#10;  end&#10;end&#10;" version="5">
-<org.eventb.core.seesContext name="_8QE00PfLEei_8e6bqqB-Eg" org.eventb.core.target="ctx1"/>
-<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
-<org.eventb.core.action name="_5ddH4PiqEei_8e6bqqB-Eg" org.eventb.core.assignment="quantidadeMalas ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="qtdMalas"/>
-<org.eventb.core.action name="_5ddu8PiqEei_8e6bqqB-Eg" org.eventb.core.assignment="currentMsgs ≔ ∅" org.eventb.core.generated="false" org.eventb.core.label="malasRessalva"/>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544188962310" org.eventb.texttools.text_representation="machine mch1 refines mch0 sees ctx1&#10;&#10;variables&#10;   alarm&#10;   n_baggages_reservation&#10;   n_baggages_voo&#10;   n_baggages_taken&#10;&#10;   bgd_out&#10;   n           // number of baggages on reservation&#10;   it &#9;&#9;&#9;//iteration number&#10;&#10;invariants&#10;&#10;   @inv-3 n_baggages_taken ∈ ℕ&#10;   @inv-2 n_baggages_voo ∈ ℕ&#10;   @inv-1 n_baggages_reservation ∈ ℕ&#10;   @inv0 alarm ∈ BOOL&#10;   @inv2 (n_baggages_voo + n_baggages_taken + n_baggages_reservation) = bgd_out&#10;&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;    then&#10;     @act5 alarm ≔ FALSE&#10;     @act6 n_baggages_reservation ≔ 0&#10;     @act7 n_baggages_voo ≔ 0&#10;     @act8 n_baggages_taken ≔ 0&#10;  end&#10;&#10;  event&#10;&#10;&#10;  event STB_malicious_baggage_in&#10;    where&#10;      @grd1 it &lt; max_it&#10;    then&#10;      @act1 n≔n+1&#10;      @act2 it ≔ it + 1&#10;      @act3 n_baggages_reservation ≔ n_baggages_reservation + 1&#10;  end&#10;&#10;  event trigger_alarm_ON&#10;    where&#10;      @grd1 alarm = FALSE&#10;      @grd2 n_baggages_reservation = threshold&#10;    then&#10;      @act1 alarm ≔ TRUE&#10;  end&#10;&#10;  event trigger_alarm_OFF&#10;    where&#10;      @grd1 alarm = TRUE&#10;      @grd2 n_baggages_reservation &lt; threshold&#10;    then&#10;      @act1 alarm ≔ FALSE&#10;  end&#10;&#10;   event STB_malicious_out&#10;    where&#10;      @grd1 n &gt; 0&#10;      @grd2 n_baggages_reservation &gt; 0&#10;    then&#10;      @act1 n≔n−1&#10;      @act2 bgd_out ≔ bgd_out + 1&#10;      @act3 n_baggages_reservation ≔  n_baggages_reservation − 1&#10;  end&#10;&#10;end&#10;" version="5">
+<org.eventb.core.refinesMachine name="_m9DRAPoZEeim8M1HIqvP6g" org.eventb.core.target="mch0"/>
+<org.eventb.core.seesContext name="_n08iUPoZEeim8M1HIqvP6g" org.eventb.core.target="ctx1"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_wd3YkPocEeim8M1HIqvP6g" org.eventb.core.assignment="alarm ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="act5"/>
+<org.eventb.core.action name="_wd3YkfocEeim8M1HIqvP6g" org.eventb.core.assignment="n_baggages_reservation ≔ 0" org.eventb.core.generated="false" org.eventb.core.label="act6"/>
+<org.eventb.core.action name="_yTMigPocEeim8M1HIqvP6g" org.eventb.core.assignment="n_baggages_voo ≔ 0" org.eventb.core.generated="false" org.eventb.core.label="act7"/>
+<org.eventb.core.action name="_yTMigfocEeim8M1HIqvP6g" org.eventb.core.assignment="n_baggages_taken ≔ 0" org.eventb.core.generated="false" org.eventb.core.label="act8"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="_8QE00ffLEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.identifier="quantidadeMalas"/>
-<org.eventb.core.variable name="_ANa0IPfMEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.identifier="quantidade_malas_ressalva"/>
-<org.eventb.core.invariant name="_5ddu8fiqEei_8e6bqqB-Eg" org.eventb.core.comment="number of baggage" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="n∈ℕ"/>
-<org.eventb.core.invariant name="_5ddu8viqEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="n≤d"/>
-<org.eventb.core.invariant name="_5ddu8_iqEei_8e6bqqB-Eg" org.eventb.core.generated="false" org.eventb.core.label="thm1" org.eventb.core.predicate="n&gt;0 ∨ n&lt;d" org.eventb.core.theorem="true"/>
+<org.eventb.core.variable name="_F3r9MPoaEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="alarm"/>
+<org.eventb.core.variable name="_WVkr8PoaEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_reservation"/>
+<org.eventb.core.variable name="_LFnIsPocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_voo"/>
+<org.eventb.core.variable name="_LFnIsfocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_taken"/>
+<org.eventb.core.invariant name="_wd3Yk_ocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv-3" org.eventb.core.predicate="n_baggages_taken ∈ ℕ"/>
+<org.eventb.core.invariant name="_wd3YlPocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv-2" org.eventb.core.predicate="n_baggages_voo ∈ ℕ"/>
+<org.eventb.core.invariant name="_wd3YlfocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv-1" org.eventb.core.predicate="n_baggages_reservation ∈ ℕ"/>
+<org.eventb.core.invariant name="_wd3_oPocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv0" org.eventb.core.predicate="alarm ∈ BOOL"/>
+<org.eventb.core.invariant name="_LFnIs_ocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="(n_baggages_voo + n_baggages_taken + n_baggages_reservation) = bgd_out"/>
+<org.eventb.core.variable name="_3sxPQPocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="bgd_out"/>
+<org.eventb.core.variable name="_KOgFEPodEeim8M1HIqvP6g" org.eventb.core.comment="number of baggages on reservation" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
+<org.eventb.core.variable name="_KOgFEfodEeim8M1HIqvP6g" org.eventb.core.comment="iteration number" org.eventb.core.generated="false" org.eventb.core.identifier="it"/>
+<org.eventb.core.event name="_JlwtQPohEeim8M1HIqvP6g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="STB_malicious_baggage_in">
+<org.eventb.core.guard name="_JlwtQfohEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="it &lt; max_it"/>
+<org.eventb.core.action name="_JlwtQvohEeim8M1HIqvP6g" org.eventb.core.assignment="n≔n+1" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+<org.eventb.core.action name="_JlwtQ_ohEeim8M1HIqvP6g" org.eventb.core.assignment="it ≔ it + 1" org.eventb.core.generated="false" org.eventb.core.label="act2"/>
+<org.eventb.core.action name="_JlxUUPohEeim8M1HIqvP6g" org.eventb.core.assignment="n_baggages_reservation ≔ n_baggages_reservation + 1" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_0313QPohEeim8M1HIqvP6g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="trigger_alarm_ON">
+<org.eventb.core.guard name="_q6FNofohEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="alarm = FALSE"/>
+<org.eventb.core.guard name="_q6FNovohEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="n_baggages_reservation = threshold"/>
+<org.eventb.core.action name="_q6FNo_ohEeim8M1HIqvP6g" org.eventb.core.assignment="alarm ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_032eUPohEeim8M1HIqvP6g" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="trigger_alarm_OFF">
+<org.eventb.core.guard name="_032eUfohEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="alarm = TRUE"/>
+<org.eventb.core.guard name="_032eUvohEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="n_baggages_reservation &lt; threshold"/>
+<org.eventb.core.action name="_032eU_ohEeim8M1HIqvP6g" org.eventb.core.assignment="alarm ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
 </org.eventb.core.machineFile>

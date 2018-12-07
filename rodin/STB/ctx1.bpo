@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poIdentifier name="local" org.eventb.core.type="ℙ(local)"/>
-<org.eventb.core.poIdentifier name="malas" org.eventb.core.type="ℙ(malas)"/>
-<org.eventb.core.poIdentifier name="rastroMala" org.eventb.core.type="ℙ(rastroMala)"/>
-<org.eventb.core.poIdentifier name="estadoMala" org.eventb.core.type="ℙ(malas×local)"/>
-<org.eventb.core.poIdentifier name="mala" org.eventb.core.type="malas"/>
-<org.eventb.core.poIdentifier name="quantidadeMalasRessalva" org.eventb.core.type="ℤ"/>
-<org.eventb.core.poIdentifier name="round" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poFile org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poIdentifier name="max_it" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poPredicate name="max_iu" org.eventb.core.predicate="max_it∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7boPoUEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="max_iv" org.eventb.core.predicate="max_it&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7bofoUEeim8M1HIqvP6g"/>
+<org.eventb.core.poIdentifier name="threshold" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx1.bpo|org.eventb.core.poFile#ctx1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="mala∈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_NGdgAPcEEei_8e6bqqB-Eg"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="estadoMala∈malas → local" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_NGdgAfcEEei_8e6bqqB-Eg"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="quantidadeMalasRessalva∈ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_NGdgAvcEEei_8e6bqqB-Eg"/>
-<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="round∈ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_NGeHEPcEEei_8e6bqqB-Eg"/>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx1.bpo|org.eventb.core.poFile#ctx1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="2">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="threshold∈ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcPoZEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="threshold&gt;0" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcfoZEeim8M1HIqvP6g"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>
