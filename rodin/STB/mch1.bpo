@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="max_it" org.eventb.core.type="ℤ"/>
-<org.eventb.core.poPredicate name="max_iu" org.eventb.core.predicate="max_it∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7boPoUEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="max_iv" org.eventb.core.predicate="max_it&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7bofoUEeim8M1HIqvP6g"/>
 <org.eventb.core.poIdentifier name="threshold" org.eventb.core.type="ℤ"/>
-<org.eventb.core.poPredicate name="threshole" org.eventb.core.predicate="threshold∈ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcPoZEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="thresholf" org.eventb.core.predicate="threshold&gt;0" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcfoZEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="threshole" org.eventb.core.predicate="max_it∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7boPoUEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="thresholf" org.eventb.core.predicate="max_it&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7bofoUEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="thresholg" org.eventb.core.predicate="threshold∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_FJ4PMP0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="thresholh" org.eventb.core.predicate="threshold&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_FJ42QP0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poIdentifier name="mala" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="malas" org.eventb.core.type="ℙ(ℤ)"/>
+<org.eventb.core.poPredicate name="thresholi" org.eventb.core.predicate="malas⊆ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcPoZEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="thresholj" org.eventb.core.predicate="mala∈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcfoZEeim8M1HIqvP6g"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="18">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="alarm" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="bgd_out" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="it" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n_baggages_reservation" org.eventb.core.type="ℤ"/>
@@ -23,187 +28,301 @@
 <org.eventb.core.poPredicate name="n_baggages_reservatios" org.eventb.core.predicate="n≥0∧n≤it" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_S4dq4PolEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="n_baggages_reservatiot" org.eventb.core.predicate="it=n+bgd_out" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_i_uz8PomEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="n_baggages_reservatiou" org.eventb.core.predicate="bgd_out≤it" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_rU1dsPomEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatiov" org.eventb.core.predicate="n_baggages_taken∈ℕ" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6Cu7oP0-EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatiow" org.eventb.core.predicate="n_baggages_voo∈ℕ" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6Cu7of0-EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatiox" org.eventb.core.predicate="n_baggages_reservation∈ℕ" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6Cu7ov0-EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatioy" org.eventb.core.predicate="alarm∈BOOL" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6Cu7o_0-EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatioz" org.eventb.core.predicate="n_baggages_voo+n_baggages_taken+n_baggages_reservation=bgd_out" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6Cu7pP0-EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="n_baggages_reservatio{" org.eventb.core.predicate="alarm=TRUE⇒n_baggages_reservation≥threshold" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.invariant#_6CvisP0-EeilwdSr8n7cyQ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="INITIALISATION/inv-3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
+<org.eventb.core.poSequent name="INITIALISATION/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioo"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="malas × {0}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
 <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#'"/>
 <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv-3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
 <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv-2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioo"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlPocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlPocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv-2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD1"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv-1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioo"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv-1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="7">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioo"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="0+0+0=0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="INITIALISATION/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="14">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioo"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒0≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#'"/>
-<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#INITIALISATION\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
-</org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatioo" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="7">
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatioo" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="n_baggages_voo'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="it'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n_baggages_reservation'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="alarm'" org.eventb.core.type="BOOL"/>
 <org.eventb.core.poIdentifier name="bgd_out'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
 <org.eventb.core.poIdentifier name="n_baggages_taken'" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatioo" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatioo" org.eventb.core.poStamp="7"/>
-<org.eventb.core.poSequent name="STB_malicious_baggage_in/inv-1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n_baggages_reservation+1∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_baggage_in\/inv-1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatioo" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatioo" org.eventb.core.poStamp="0"/>
+<org.eventb.core.poSequent name="check_in/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiop*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.guard#_52T-VP1AEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.guard#_52T-VP1AEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiop*"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_baggage_in/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="check_in/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n_baggages_voo+n_baggages_taken+(n_baggages_reservation+1)=bgd_out" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_baggage_in\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+1}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#check_in\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_baggage_in/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="check_in/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="alarm=TRUE⇒n_baggages_reservation+1≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_baggage_in\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.action#_F8OnQP1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.action#_F8OnQP1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_baggage_in/it/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="it+1=it" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g|org.eventb.core.action#_JlwtQ_ohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_baggage_in\/it\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiop" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="it'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatiop*" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiop" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="it&lt;max_it" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvIPitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.guard#_52T-U_1AEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiop" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiop*" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="historico(m)=0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_52T-UP1AEeilwdSr8n7cyQ|org.eventb.core.guard#_52T-VP1AEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="EVIL_check_in/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatioq+"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.guard#_PIm3RP1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.guard#_PIm3RP1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatioq+"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_baggage_in/n/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiop"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n+1=n" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g|org.eventb.core.action#_JlwtQvohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_baggage_in\/n\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSequent name="EVIL_check_in/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioq"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+666}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_DBWccP0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#EVIL_check_in\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiop" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="EVIL_check_in/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioq"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.action#_PIm3Rf1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.action#_PIm3Rf1BEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioq"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatioq" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="it'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n_baggages_reservation'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiop" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiop" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="it&lt;max_it" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_JlwtQPohEeim8M1HIqvP6g|org.eventb.core.guard#_JlwtQfohEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatioq+" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatioq" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="it&lt;max_it" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_DBWccP0_EeilwdSr8n7cyQ|org.eventb.core.guard#_DBWccf0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.guard#_PIm3Q_1BEeilwdSr8n7cyQ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="trigger_alarm_ON/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatioq"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="TRUE=TRUE⇒n_baggages_reservation≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_0313QPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#trigger_alarm_ON\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatioq" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatioq+" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="historico(m)=0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_PIm3QP1BEeilwdSr8n7cyQ|org.eventb.core.guard#_PIm3RP1BEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="desembarque/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatior*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.guard#_KT25YP1CEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.guard#_KT25YP1CEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatior*"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatioq" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="18">
-<org.eventb.core.poIdentifier name="alarm'" org.eventb.core.type="BOOL"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatioq" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatioq" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="alarm=FALSE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_0313QPohEeim8M1HIqvP6g|org.eventb.core.guard#_q6FNofohEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n_baggages_reservation=threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_0313QPohEeim8M1HIqvP6g|org.eventb.core.guard#_q6FNovohEeim8M1HIqvP6g"/>
-</org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="trigger_alarm_OFF/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="desembarque/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatior"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="FALSE=TRUE⇒n_baggages_reservation≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_032eUPohEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#trigger_alarm_OFF\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+64}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#desembarque\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatior" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="18">
-<org.eventb.core.poIdentifier name="alarm'" org.eventb.core.type="BOOL"/>
+<org.eventb.core.poSequent name="desembarque/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatior"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.action#_KT25Yf1CEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.action#_KT25Yf1CEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatior"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatior" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="it'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatior" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatior" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="alarm=TRUE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_032eUPohEeim8M1HIqvP6g|org.eventb.core.guard#_032eUfohEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n_baggages_reservation&lt;threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_032eUPohEeim8M1HIqvP6g|org.eventb.core.guard#_032eUvohEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatior*" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatior" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="it&lt;max_it" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfvIvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvIPitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.guard#_KT2SUv1CEeilwdSr8n7cyQ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poSequent name="STB_malicious_out/inv-1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n_baggages_reservation − 1∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_out\/inv-1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD2"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatior" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatior*" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="historico(m)=0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_KT2SUP1CEeilwdSr8n7cyQ|org.eventb.core.guard#_KT25YP1CEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="inspecao/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatios'"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ∧(historico(m)=1∨(m∈dom(historico)∧historico∈ℤ ⇸ ℤ))" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_isfbsv1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_isfbsv1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatios'"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_out/inv2/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="inspecao/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n_baggages_voo+n_baggages_taken+(n_baggages_reservation − 1)=bgd_out+1" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_out\/inv2\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD4"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+2}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#inspecao\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_out/inv3/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="inspecao/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="alarm=TRUE⇒n_baggages_reservation − 1≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_out\/inv3\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
-<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD5"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.action#_mJXyQP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.action#_mJXyQP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_out/bgd_out/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="bgd_out+1=bgd_out" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g|org.eventb.core.action#_Zj1oofojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_out\/bgd_out\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatios" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatios'" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatios" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_b2m-cP1CEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatios" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatios'" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="historico(m)=1∨historico(m)=666" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_isfbsP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_isfbsv1DEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="selecao/grd3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiot'"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ∧(historico(m)=3∨(m∈dom(historico)∧historico∈ℤ ⇸ ℤ))" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_4SFEEf1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_4SFEEf1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiot'"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poSequent name="STB_malicious_out/n/EQL" org.eventb.core.accurate="true" org.eventb.core.poDesc="Equality of common variables" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatios"/>
-<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="n − 1=n" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g|org.eventb.core.action#_Zj1ooPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g"/>
-<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#STB_malicious_out\/n\/EQL|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSequent name="selecao/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiot"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+4}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYT" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#selecao\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
 </org.eventb.core.poSequent>
-<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatios" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="18">
+<org.eventb.core.poSequent name="selecao/act/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiot"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.action#_yhHyEP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.action#_yhHyEP1DEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiot"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiot" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatiot'" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiot" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_4SFEEP1DEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiot" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiot'" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="historico(m)=3∨historico(m)=64" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_yhHLAP1DEeilwdSr8n7cyQ|org.eventb.core.guard#_4SFEEf1DEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="ressalva/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiou,"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.guard#_P9kB8_1EEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.guard#_P9kB8_1EEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiou,"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="ressalva/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiou"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+8}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_DBXDiP0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#ressalva\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="ressalva/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiou"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.action#_U3MDUP1EEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.action#_U3MDUP1EEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiou"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiou" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="n_baggages_reservation'" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poIdentifier name="bgd_out'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatios" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatios" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n&gt;0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g|org.eventb.core.guard#_Zj1BkfojEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n_baggages_reservation&gt;0" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_Zj1BkPojEeim8M1HIqvP6g|org.eventb.core.guard#_Zj1BkvojEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatiou," org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiou" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n&gt;0" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_DBXDiP0_EeilwdSr8n7cyQ|org.eventb.core.guard#_DBXDif0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n_baggages_reservation&gt;0" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_DBXDiP0_EeilwdSr8n7cyQ|org.eventb.core.guard#_DBXDiv0_EeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.guard#_P9kB8v1EEeilwdSr8n7cyQ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="18">
-<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n_baggages_taken∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="n_baggages_voo∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlPocEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="n_baggages_reservation∈ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3YlfocEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="alarm∈BOOL" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3_oPocEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="n_baggages_voo+n_baggages_taken+n_baggages_reservation=bgd_out" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_LFnIs_ocEeim8M1HIqvP6g"/>
-<org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="alarm=TRUE⇒n_baggages_reservation≥threshold" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_T5I6MPokEeim8M1HIqvP6g"/>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiou" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiou," org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="historico(m)=668" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_P9kB8P1EEeilwdSr8n7cyQ|org.eventb.core.guard#_P9kB8_1EEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="esteira_recolhimento/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiov*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.guard#_TKMgkv1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.guard#_TKMgkv1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiov*"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="esteira_recolhimento/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiov"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+16}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#esteira_recolhimento\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="esteira_recolhimento/act3/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiov"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.action#_TKMgk_1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.action#_TKMgk_1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiov"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiov" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="bgd_out'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatiov*" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiov" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n&gt;0" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvI_itEei_8e6bqqB-Eg"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.guard#_TKMgkf1FEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiov" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiov*" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="historico(m)=68" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_TKL5gf1FEeilwdSr8n7cyQ|org.eventb.core.guard#_TKMgkv1FEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poSequent name="embarque/grd4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiow*"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.guard#_-mtY9v1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.guard#_-mtY9v1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiow*"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="embarque/inv1/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiow"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="historico{m ↦ historico(m)+32}∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg"/>
+<org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
+<org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poSequent#embarque\/inv1\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+<org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD0"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poSequent name="embarque/act4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of action" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiow"/>
+<org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="m∈dom(historico)∧historico∈ℤ ⇸ ℤ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.action#_-mtY9_1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.action#_-mtY9_1FEeilwdSr8n7cyQ"/>
+<org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTALLHYPn_baggages_reservatiow"/>
+</org.eventb.core.poSequent>
+<org.eventb.core.poPredicateSet name="EVTIDENTn_baggages_reservatiow" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poIdentifier name="n'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="bgd_out'" org.eventb.core.type="ℤ"/>
+<org.eventb.core.poIdentifier name="historico'" org.eventb.core.type="ℙ(ℤ×ℤ)"/>
+<org.eventb.core.poIdentifier name="m" org.eventb.core.type="ℤ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTHYPn_baggages_reservatiow*" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTIDENTn_baggages_reservatiow" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="n&gt;0" org.eventb.core.source="/STB/mch0.bum|org.eventb.core.machineFile#mch0|org.eventb.core.event#_pYfIFvitEei_8e6bqqB-Eg|org.eventb.core.guard#_pYfvI_itEei_8e6bqqB-Eg"/>
+<org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="m∈malas" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.guard#_-mtY9f1FEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="EVTALLHYPn_baggages_reservatiow" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#EVTHYPn_baggages_reservatiow*" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="historico(m)=7" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.event#_-mtY8v1FEeilwdSr8n7cyQ|org.eventb.core.guard#_-mtY9v1FEeilwdSr8n7cyQ"/>
+</org.eventb.core.poPredicateSet>
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/mch1.bpo|org.eventb.core.poFile#mch1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="historico∈malas → ℕ" org.eventb.core.source="/STB/mch1.bum|org.eventb.core.machineFile#mch1|org.eventb.core.invariant#_wd3Yk_ocEeim8M1HIqvP6g"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

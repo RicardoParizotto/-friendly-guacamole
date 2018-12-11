@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544184937206" org.eventb.texttools.text_representation="context ctx1 extends ctx0&#10;   constants&#10;      threshold&#10;&#10;   axioms&#10;      @axm1   threshold ∈ ℕ&#10;      @axm2   threshold &gt; 0&#10;end&#10;" version="3">
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544530986335" org.eventb.texttools.text_representation="context ctx1 extends ctx0&#10;&#10;constants&#10;&#9;mala&#10;&#9;malas&#10;&#10;axioms&#10;&#9;@axm1 malas ⊆ ℕ&#10;    @axm2 mala ∈ malas&#10;end&#10;" version="3">
 <org.eventb.core.extendsContext name="_zgDekPoZEeim8M1HIqvP6g" org.eventb.core.target="ctx0"/>
-<org.eventb.core.constant name="_VhicYPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="threshold"/>
-<org.eventb.core.axiom name="_VhjDcPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold ∈ ℕ"/>
-<org.eventb.core.axiom name="_VhjDcfoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold &gt; 0"/>
+<org.eventb.core.constant name="_VhicYPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="mala"/>
+<org.eventb.core.axiom name="_VhjDcPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="malas ⊆ ℕ"/>
+<org.eventb.core.axiom name="_VhjDcfoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="mala ∈ malas"/>
+<org.eventb.core.constant name="_g1tdEP0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="malas"/>
 </org.eventb.core.contextFile>
