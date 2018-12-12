@@ -23,6 +23,7 @@
 <org.eventb.core.poPredicate name="atributos_malc" org.eventb.core.predicate="mala∈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcfoZEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="atributos_mald" org.eventb.core.predicate="locais={checkin,inspec,selec,ressalva,est_rec,embarque,desemb}" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_Z6MEEP39EeilwdSr8n7cyQ"/>
 <org.eventb.core.poPredicate name="atributos_male" org.eventb.core.predicate="atributos_mala={benigna,maligna,conexao,destino}" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_XjRcxf4NEeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="atributos_malf" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ))⊈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_s-zjsP4tEeilwdSr8n7cyQ"/>
 <org.eventb.core.poIdentifier name="threshold" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
 <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx2.bpo|org.eventb.core.poFile#ctx2|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="2">

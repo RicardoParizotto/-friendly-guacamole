@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="3">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="max_it" org.eventb.core.type="ℤ"/>
 <org.eventb.core.poPredicate name="max_iu" org.eventb.core.predicate="max_it∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7boPoUEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="max_iv" org.eventb.core.predicate="max_it&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7bofoUEeim8M1HIqvP6g"/>
@@ -20,10 +20,11 @@
 <org.eventb.core.poIdentifier name="ressalva" org.eventb.core.type="locais"/>
 <org.eventb.core.poIdentifier name="selec" org.eventb.core.type="locais"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx1.bpo|org.eventb.core.poFile#ctx1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx1.bpo|org.eventb.core.poFile#ctx1|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="3">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="malas⊆ℕ" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcPoZEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="mala∈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_VhjDcfoZEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="locais={checkin,inspec,selec,ressalva,est_rec,embarque,desemb}" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_Z6MEEP39EeilwdSr8n7cyQ"/>
 <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="atributos_mala={benigna,maligna,conexao,destino}" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_XjRcxf4NEeilwdSr8n7cyQ"/>
+<org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ))⊈malas" org.eventb.core.source="/STB/ctx1.buc|org.eventb.core.contextFile#ctx1|org.eventb.core.axiom#_s-zjsP4tEeilwdSr8n7cyQ"/>
 </org.eventb.core.poPredicateSet>
 </org.eventb.core.poFile>

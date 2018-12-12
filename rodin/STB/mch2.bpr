@@ -32,108 +32,41 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="baggage_in/inv1/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
-<org.eventb.core.lang name="L"/>
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="p2,p3" org.eventb.core.prInfHyps="p1"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p4" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p1"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p8"/>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="ressalva∉historico(m)">
-<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
-<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
-<org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="¬ressalva∈historico(m)">
-<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
-<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
-<org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤∧⊤"/>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="n&gt;0">
-<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p3" org.eventb.core.predicate="n≤it">
-<org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="n≥0∧n≤it">
-<org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p4" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒checkin∉historico(m)">
-<org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
-<org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
-<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
-<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
-<org.eventb.core.prIdent name="malas" org.eventb.core.type="ℙ(ℤ)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="alarm∈BOOL">
-<org.eventb.core.prIdent name="alarm" org.eventb.core.type="BOOL"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒¬checkin∈historico(m)">
-<org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
-<org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
-<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
-<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
-<org.eventb.core.prIdent name="malas" org.eventb.core.type="ℙ(ℤ)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
-<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-</org.eventb.core.prProof>
-<org.eventb.core.prProof name="baggage_in/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+<org.eventb.core.prProof name="baggage_in/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0">
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
 <org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p3,p4" org.eventb.core.prInfHyps="p2"/>
 <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p5" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p6"/>
-<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p7" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p8"/>
-<org.eventb.core.prHypAction name="HIDE2" org.eventb.core.prHyps="p2"/>
-<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="type rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="HIDE0" org.eventb.core.prHyps="p9"/>
-<org.eventb.core.prRule name="r3" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⇒ goal" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="p10">
-<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prGoal="p11" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p11">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p12" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p13"/>
-<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
-<org.eventb.core.prAnte name="'">
-<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p13" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p14"/>
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p2"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p5"/>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
 </org.eventb.core.prAnte>
 </org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-</org.eventb.core.prAnte>
-</org.eventb.core.prRule>
-<org.eventb.core.prIdent name="alarm" org.eventb.core.type="BOOL"/>
-<org.eventb.core.prIdent name="n_baggages_ressalva" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prIdent name="threshold" org.eventb.core.type="ℤ"/>
-<org.eventb.core.prPred name="p0" org.eventb.core.predicate="n_baggages_ressalva+1≥threshold⇒alarm=TRUE"/>
+<org.eventb.core.prIdent name="malas" org.eventb.core.type="ℙ(ℤ)"/>
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ))⊈malas"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="ressalva∉historico(m)">
+<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
+<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
+<org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬ressalva∈historico(m)">
+<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
+<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
+<org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p2" org.eventb.core.predicate="⊤∧⊤"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="⊥"/>
+<org.eventb.core.prPred name="p3" org.eventb.core.predicate="n&gt;0">
+<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
 <org.eventb.core.prPred name="p4" org.eventb.core.predicate="n≤it">
 <org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
 <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
@@ -142,45 +75,80 @@
 <org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
 <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p9" org.eventb.core.predicate="alarm∈BOOL"/>
-<org.eventb.core.prPred name="p12" org.eventb.core.predicate="n_baggages_ressalva≥threshold⇒alarm=TRUE"/>
-<org.eventb.core.prPred name="p11" org.eventb.core.predicate="alarm=TRUE"/>
-<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒¬checkin∈historico(m)">
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒checkin∉historico(m)">
 <org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
 <org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
 <org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
 <org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒¬checkin∈historico(m)">
+<org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
+<org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
+<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
+<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
+<org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
+</org.eventb.core.prProof>
+<org.eventb.core.prProof name="baggage_in/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prHyps="p0">
+<org.eventb.core.lang name="L"/>
+<org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="generalized MP" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p1" org.eventb.core.prHyps="p3,p4" org.eventb.core.prInfHyps="p2"/>
+<org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
+<org.eventb.core.prAnte name="'">
+<org.eventb.core.prHypAction name="REWRITE0" org.eventb.core.prHidden="p0" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p5"/>
+<org.eventb.core.prHypAction name="REWRITE1" org.eventb.core.prHidden="p6" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p7"/>
+<org.eventb.core.prHypAction name="REWRITE2" org.eventb.core.prHidden="p8" org.eventb.core.prHyps="" org.eventb.core.prInfHyps="p9"/>
+<org.eventb.core.prHypAction name="HIDE3" org.eventb.core.prHyps="p2"/>
+<org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊥ hyp" org.eventb.core.prHyps="p5"/>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
+</org.eventb.core.prAnte>
+</org.eventb.core.prRule>
 <org.eventb.core.prIdent name="malas" org.eventb.core.type="ℙ(ℤ)"/>
-</org.eventb.core.prPred>
-<org.eventb.core.prPred name="p7" org.eventb.core.predicate="ressalva∉historico(m)">
+<org.eventb.core.prPred name="p0" org.eventb.core.predicate="(∅ ⦂ ℙ(ℤ))⊈malas"/>
+<org.eventb.core.prPred name="p8" org.eventb.core.predicate="ressalva∉historico(m)">
 <org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
 <org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
 <org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
 <org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p8" org.eventb.core.predicate="¬ressalva∈historico(m)">
+<org.eventb.core.prPred name="p9" org.eventb.core.predicate="¬ressalva∈historico(m)">
 <org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
 <org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
 <org.eventb.core.prIdent name="m" org.eventb.core.type="ℤ"/>
 <org.eventb.core.prIdent name="ressalva" org.eventb.core.type="locais"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p13" org.eventb.core.predicate="n_baggages_ressalva≥threshold⇒⊥"/>
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="⊤∧⊤"/>
+<org.eventb.core.prPred name="p5" org.eventb.core.predicate="⊥"/>
 <org.eventb.core.prPred name="p3" org.eventb.core.predicate="n&gt;0">
 <org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p14" org.eventb.core.predicate="n_baggages_ressalva&lt;threshold"/>
-<org.eventb.core.prPred name="p5" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒checkin∉historico(m)">
+<org.eventb.core.prPred name="p4" org.eventb.core.predicate="n≤it">
+<org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="n≥0∧n≤it">
+<org.eventb.core.prIdent name="it" org.eventb.core.type="ℤ"/>
+<org.eventb.core.prIdent name="n" org.eventb.core.type="ℤ"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prPred name="p6" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒checkin∉historico(m)">
 <org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
 <org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
 <org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
 <org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
-<org.eventb.core.prIdent name="malas" org.eventb.core.type="ℙ(ℤ)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p10" org.eventb.core.predicate="n_baggages_ressalva+1≥threshold"/>
-<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prPred name="p7" org.eventb.core.predicate="∀m⦂ℤ·m∈malas∧est_rec∈historico(m)⇒¬checkin∈historico(m)">
+<org.eventb.core.prIdent name="checkin" org.eventb.core.type="locais"/>
+<org.eventb.core.prIdent name="est_rec" org.eventb.core.type="locais"/>
+<org.eventb.core.prIdent name="historico" org.eventb.core.type="ℙ(ℤ×ℙ(locais))"/>
+<org.eventb.core.prIdent name="locais" org.eventb.core.type="ℙ(locais)"/>
+</org.eventb.core.prPred>
+<org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.core.seqprover.falseHyp"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.genMPL3"/>
-<org.eventb.core.prReas name="r3" org.eventb.core.prRID="org.eventb.core.seqprover.impI"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="trigger_alarm/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1">
 <org.eventb.core.lang name="L"/>

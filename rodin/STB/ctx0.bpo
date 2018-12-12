@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.poFile org.eventb.core.poStamp="1">
-<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+<org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poIdentifier name="max_it" org.eventb.core.type="ℤ"/>
 </org.eventb.core.poPredicateSet>
-<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx0.bpo|org.eventb.core.poFile#ctx0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="1">
+<org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/STB/ctx0.bpo|org.eventb.core.poFile#ctx0|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
 <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="max_it∈ℕ" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7boPoUEeim8M1HIqvP6g"/>
 <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="max_it&gt;0" org.eventb.core.source="/STB/ctx0.buc|org.eventb.core.contextFile#ctx0|org.eventb.core.axiom#_aK7bofoUEeim8M1HIqvP6g"/>
 </org.eventb.core.poPredicateSet>
