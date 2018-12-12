@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544530813343" org.eventb.texttools.text_representation="context ctx0&#10;&#10;constants&#10;   max_it&#10;   threshold&#10;&#10;&#10;axioms&#10;  @axm-1 max_it ∈ ℕ&#10;  @axm0 max_it &gt; 0&#10;  @axm1 threshold ∈ ℕ&#10;  @axm2 threshold &gt; 0&#10;&#10;end&#10;" version="3">
-<org.eventb.core.axiom name="_aK7boPoUEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm-1" org.eventb.core.predicate="max_it ∈ ℕ"/>
-<org.eventb.core.axiom name="_aK7bofoUEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm0" org.eventb.core.predicate="max_it &gt; 0"/>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544629716889" org.eventb.texttools.text_representation="context ctx0&#10;&#10;constants&#10;   max_it&#10;&#10;axioms&#10;  @axm1 max_it ∈ ℕ&#10;  @axm2 max_it &gt; 0&#10;&#10;&#10;end&#10;" version="3">
+<org.eventb.core.axiom name="_aK7boPoUEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="max_it ∈ ℕ"/>
+<org.eventb.core.axiom name="_aK7bofoUEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="max_it &gt; 0"/>
 <org.eventb.core.constant name="_O7XL4PoUEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="max_it"/>
-<org.eventb.core.axiom name="_FJ4PMP0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold ∈ ℕ"/>
-<org.eventb.core.axiom name="_FJ42QP0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold &gt; 0"/>
-<org.eventb.core.constant name="_HD7hEP0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="threshold"/>
 </org.eventb.core.contextFile>

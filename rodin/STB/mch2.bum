@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544630776606" org.eventb.texttools.text_representation="machine mch2 refines mch1 sees ctx2&#10;&#10;&#10;variables&#10;&#9;n_baggages_ressalva&#10;&#9;alarm&#10;&#10;    //REFINADOS&#10;    historico&#10;    atributos&#10;    n // number of baggages in the system&#10;    it // iteration number&#10;    bgd_out // number of baggages that has exit the system&#10;&#10;invariants&#10;&#9;@inv1 n_baggages_ressalva ∈ ℕ&#10;&#9;@inv2 alarm ∈ BOOL&#10;&#9;@inv3 (n_baggages_ressalva ≥ threshold) ⇒ (alarm = TRUE)&#10;&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;     then&#10;        @act100 alarm ≔ FALSE&#10;        @act200 n_baggages_ressalva ≔ 0&#10;  end&#10;&#10;  event baggage_in extends ressalva_in&#10;     then&#10;        @act12321 n_baggages_ressalva ≔ n_baggages_ressalva + 1&#10;  end&#10;&#10;  event trigger_alarm&#10;     where&#10;        @grd1 n_baggages_ressalva = threshold&#10;     then&#10;        @act1 alarm ≔ TRUE&#10;  end&#10;&#10;&#10;end&#10;" version="5">
+<org.eventb.core.refinesMachine name="_j7XG4P4lEeilwdSr8n7cyQ" org.eventb.core.target="mch1"/>
+<org.eventb.core.seesContext name="_j7XG4f4lEeilwdSr8n7cyQ" org.eventb.core.target="ctx2"/>
+<org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_-y374P4lEeilwdSr8n7cyQ" org.eventb.core.assignment="alarm ≔ FALSE" org.eventb.core.generated="false" org.eventb.core.label="act100"/>
+<org.eventb.core.action name="_-y374f4lEeilwdSr8n7cyQ" org.eventb.core.assignment="n_baggages_ressalva ≔ 0" org.eventb.core.generated="false" org.eventb.core.label="act200"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="_iQOawP4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_ressalva"/>
+<org.eventb.core.variable name="_y-Ll0P4lEeilwdSr8n7cyQ" org.eventb.core.comment="REFINADOS" org.eventb.core.generated="false" org.eventb.core.identifier="alarm"/>
+<org.eventb.core.invariant name="_y-Ll0f4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="n_baggages_ressalva ∈ ℕ"/>
+<org.eventb.core.invariant name="_y-Ll0v4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv2" org.eventb.core.predicate="alarm ∈ BOOL"/>
+<org.eventb.core.invariant name="_y-Ll0_4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv3" org.eventb.core.predicate="(n_baggages_ressalva ≥ threshold) ⇒ (alarm = TRUE)"/>
+<org.eventb.core.variable name="_EGyskP4mEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="historico"/>
+<org.eventb.core.variable name="_EGyskf4mEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="atributos"/>
+<org.eventb.core.variable name="_EGyskv4mEeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages in the system" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
+<org.eventb.core.variable name="_EGysk_4mEeilwdSr8n7cyQ" org.eventb.core.comment="iteration number" org.eventb.core.generated="false" org.eventb.core.identifier="it"/>
+<org.eventb.core.variable name="_EGyslP4mEeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages that has exit the system" org.eventb.core.generated="false" org.eventb.core.identifier="bgd_out"/>
+<org.eventb.core.event name="_Y_ARkP4mEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="baggage_in">
+<org.eventb.core.refinesEvent name="_Y_ARkf4mEeilwdSr8n7cyQ" org.eventb.core.target="ressalva_in"/>
+<org.eventb.core.action name="_Y_ARkv4mEeilwdSr8n7cyQ" org.eventb.core.assignment="n_baggages_ressalva ≔ n_baggages_ressalva + 1" org.eventb.core.generated="false" org.eventb.core.label="act12321"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_lf-e0P4mEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="trigger_alarm">
+<org.eventb.core.guard name="_lf-e0f4mEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="n_baggages_ressalva = threshold"/>
+<org.eventb.core.action name="_lf-e0v4mEeilwdSr8n7cyQ" org.eventb.core.assignment="alarm ≔ TRUE" org.eventb.core.generated="false" org.eventb.core.label="act1"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>

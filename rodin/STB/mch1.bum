@@ -1,71 +1,83 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544534074027" org.eventb.texttools.text_representation="machine mch1 refines mch0  sees ctx1&#10;&#10;variables&#10;   historico&#10;&#10;   //REFINADOS&#10;   n // number of baggages in the system&#10;   it // iteration number&#10;   bgd_out // number of baggages that has exit the system&#10;   alarm&#10;   n_baggages_reservation&#10;   n_baggages_voo&#10;   n_baggages_taken&#10;&#10;invariants&#10;   @inv1 historico ∈ malas → ℕ&#10;&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;     then&#10;        @act9 historico ≔ malas × {0}&#10;  end&#10;&#10;  event check_in extends STB_in&#10;    any m&#10;    where&#10;       @grd2 m ∈ malas&#10;       @grd3 historico(m) = 0&#10;    then&#10;       @act3 historico(m) ≔ historico(m) + 1&#10;  end&#10;&#10;  event EVIL_check_in extends STB_evil_baggage_in&#10;     any m&#10;     where&#10;       @grd2 m ∈ malas&#10;       @grd3 historico(m) = 0&#10;    then&#10;       @act4 historico(m) ≔ historico(m) + 666&#10;  end&#10;&#10;&#10;  event desembarque extends STB_in&#10;    any m&#10;    where&#10;       @grd2 m ∈ malas&#10;       @grd3 historico(m) = 0&#10;    then&#10;       @act3 historico(m) ≔ historico(m) + 64&#10;  end&#10;&#10;&#10;  event inspecao&#10;  &#9;any m&#10;  &#9;where&#10;  &#9;&#9;@grd2 m ∈ malas&#10;  &#9;&#9;@grd3 historico(m) = 1 ∨ historico(m) = 666&#10;&#9;then&#10;&#9;&#9;@act3 historico(m) ≔ historico(m) + 2&#10;  end&#10;&#10;  event selecao&#10;    any m&#10;    where&#10;       @grd1 m ∈ malas&#10;       @grd3 historico(m) = 3 ∨ historico(m) = 64&#10;    then&#10;       @act historico(m) ≔ historico(m) + 4&#10;  end&#10;&#10;  event ressalva   //se for maliciosa vai para a ressalva&#10;  extends STB_evil_out&#10;     any m&#10;     where&#10;        @grd3 m ∈ malas&#10;        @grd4 historico(m) = 668&#10;     then&#10;        @act4 historico(m) ≔ historico(m) +  8&#10;  end&#10;&#10;  event esteira_recolhimento&#10;  extends STB_out&#10;     any m&#10;     where&#10;        @grd3 m ∈ malas&#10;        @grd4 historico(m) = 68&#10;     then&#10;        @act3 historico(m) ≔ historico(m) + 16&#10;  end&#10;&#10;  event embarque&#10;  extends STB_out&#10;     any m&#10;     where&#10;        @grd3 m ∈ malas&#10;        @grd4 historico(m) = 7&#10;     then&#10;        @act4 historico(m) ≔ historico(m) + 32&#10;&#10;  end&#10;&#10;end&#10;" version="5">
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544622653265" org.eventb.texttools.text_representation="machine mch1 refines mch0 sees ctx1&#10;&#10;variables&#10;   historico&#10;   atributos&#10;&#10;   //REFINADOS&#10;   n // number of baggages in the system&#10;   it // iteration number&#10;   bgd_out // number of baggages that has exit the system&#10;&#10;invariants&#10;&#10;   @inv1 historico ∈ (malas → ℙ(locais))&#10;   @invX atributos ∈ (malas →  ℙ(atributos_mala))&#10;&#10;   @inv_prop1 ∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;(ressalva ∈ historico(m) ∨ embarque ∈ historico(m) ∨ est_rec ∈ historico(m)) ⇒&#10;   &#9;&#9;&#9;(inspec ∈ historico(m))&#10;&#10;   @inv_prop2 ∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;(est_rec ∈ historico(m)) ⇒ (checkin ∉ historico(m))&#10;&#10;   @inv_prop3 ∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;embarque ∈ historico(m) ⇒ (inspec ∈ historico(m))&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;     then&#10;        @act9 historico ≔ malas × ∅&#9;&#9;// historico da mala comeca vazio&#10;        @act10 atributos ≔ malas × ∅    // atributos da mala comeca vazio&#10;  end&#10;&#10;  event check_in extends STB_in&#10;    any m&#10;    where&#10;       @grd2 m ∈ malas&#10;       @grd20 checkin ∉ historico(m) ∧ desemb ∉ historico(m)&#10;    then&#10;       @act43 historico(m) ≔ (historico(m) ∪ {checkin})&#10;  end&#10;&#10;&#10;  event desembarque extends STB_in&#10;    any m tipo&#10;    where&#10;       @grd2 m ∈ malas&#10;       @grd4 tipo ∈ {conexao, destino}&#10;       @grd20 checkin ∉ historico(m) ∧ desemb ∉ historico(m)&#10;    then&#10;       @act23 historico(m) ≔ (historico(m) ∪ {desemb})&#10;       @act24 atributos(m) ≔ (atributos(m) ∪ {tipo})&#10;&#10;  end&#10;&#10;  event inspecao&#10;  &#9;any m bem_ou_mal&#10;  &#9;where&#10;  &#9;&#9;@grd-10 inspec ∉ historico(m)&#10;  &#9;&#9;@grd2 m ∈ malas&#10;  &#9;&#9;@grd3 checkin ∈ historico(m)&#10;  &#9;&#9;@grd4 bem_ou_mal ∈ {benigna, maligna}&#10;&#9;then&#10;&#9;&#9;@act3 historico(m) ≔ (historico(m) ∪ {inspec})&#10;&#9;&#9;@act10 atributos(m) ≔ (atributos(m) ∪ {bem_ou_mal})&#10;  end&#10;&#10;  event selecao&#10;     any m&#10;     where&#10;     &#9;@grd-10 selec ∉ historico(m)&#10;        @grd1 m ∈ malas&#10;        @grd2 inspec ∈ historico(m)&#10;        @grd3 benigna ∈ atributos(m)&#10;     then&#10;        @act0001 historico(m) ≔ (historico(m) ∪ {selec})&#10;  end&#10;&#10;  event embarque_aviao extends STB_out&#10;     any m&#10;     where&#10;     &#9;@grd-10 embarque ∉ historico(m)&#10;        @grd10 m ∈ malas&#10;        @grd12 selec ∈ historico(m)&#10;        @grd13 benigna ∈ atributos(m)&#10;        @grd14 destino ∉ atributos(m)&#10;     then&#10;        @act111 historico(m) ≔ (historico(m) ∪ {embarque})&#10;  end&#10;&#10;  event est_recolhimento extends STB_out&#10;     any m&#10;     where&#10;     &#9;@grd-10 est_rec ∉ historico(m)&#10;     &#9;@grd0001 m ∈ malas&#10;     &#9;@grd2 selec ∈ historico(m)&#10;     &#9;@grd3 benigna ∈ atributos(m)&#10;     &#9;@grd4 destino ∈ atributos(m)&#10;     then&#10;     &#9;@act1231 historico(m) ≔ (historico(m) ∪ {est_rec})&#10;  end&#10;&#10;  event ressalva_in extends STB_out&#10;     any m&#10;     where&#10;     &#9;@grd-10 ressalva ∉ historico(m)&#10;        @grd331 m ∈ malas&#10;        @grd332 inspec ∈ historico(m)&#10;        @grd333 maligna ∈ atributos(m)&#10;     then&#10;        @act4441 historico(m) ≔ (historico(m) ∪ {ressalva})&#10;   end&#10;&#10;&#10;end&#10;" version="5">
 <org.eventb.core.refinesMachine name="_m9DRAPoZEeim8M1HIqvP6g" org.eventb.core.target="mch0"/>
 <org.eventb.core.seesContext name="_n08iUPoZEeim8M1HIqvP6g" org.eventb.core.target="ctx1"/>
 <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="INITIALISATION">
-<org.eventb.core.action name="_J7DCsP1AEeilwdSr8n7cyQ" org.eventb.core.assignment="historico ≔ malas × {0}" org.eventb.core.generated="false" org.eventb.core.label="act9"/>
+<org.eventb.core.action name="_J7DCsP1AEeilwdSr8n7cyQ" org.eventb.core.assignment="historico ≔ malas × ∅" org.eventb.core.comment="historico da mala comeca vazio" org.eventb.core.generated="false" org.eventb.core.label="act9"/>
+<org.eventb.core.action name="_F8OnQP1BEeilwdSr8n7cyQ" org.eventb.core.assignment="atributos ≔ malas × ∅" org.eventb.core.comment="atributos da mala comeca vazio" org.eventb.core.generated="false" org.eventb.core.label="act10"/>
 </org.eventb.core.event>
-<org.eventb.core.variable name="_F3r9MPoaEeim8M1HIqvP6g" org.eventb.core.comment="REFINADOS" org.eventb.core.generated="false" org.eventb.core.identifier="historico"/>
-<org.eventb.core.invariant name="_wd3Yk_ocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="historico ∈ malas → ℕ"/>
-<org.eventb.core.variable name="_9KycQP0_EeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages in the system" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
-<org.eventb.core.variable name="_9KycQf0_EeilwdSr8n7cyQ" org.eventb.core.comment="iteration number" org.eventb.core.generated="false" org.eventb.core.identifier="it"/>
-<org.eventb.core.variable name="_9KycQv0_EeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages that has exit the system" org.eventb.core.generated="false" org.eventb.core.identifier="bgd_out"/>
-<org.eventb.core.variable name="_9KycQ_0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="alarm"/>
-<org.eventb.core.variable name="_9KycRP0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_reservation"/>
-<org.eventb.core.variable name="_9KycRf0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_voo"/>
-<org.eventb.core.variable name="_9KycRv0_EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="n_baggages_taken"/>
+<org.eventb.core.variable name="_F3r9MPoaEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="historico"/>
+<org.eventb.core.invariant name="_wd3Yk_ocEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="inv1" org.eventb.core.predicate="historico ∈ (malas → ℙ(locais))"/>
+<org.eventb.core.variable name="_9KycQP0_EeilwdSr8n7cyQ" org.eventb.core.comment="REFINADOS" org.eventb.core.generated="false" org.eventb.core.identifier="atributos"/>
+<org.eventb.core.variable name="_9KycQf0_EeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages in the system" org.eventb.core.generated="false" org.eventb.core.identifier="n"/>
+<org.eventb.core.variable name="_9KycQv0_EeilwdSr8n7cyQ" org.eventb.core.comment="iteration number" org.eventb.core.generated="false" org.eventb.core.identifier="it"/>
+<org.eventb.core.variable name="_9KycQ_0_EeilwdSr8n7cyQ" org.eventb.core.comment="number of baggages that has exit the system" org.eventb.core.generated="false" org.eventb.core.identifier="bgd_out"/>
 <org.eventb.core.event name="_52T-UP1AEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="check_in">
 <org.eventb.core.refinesEvent name="_52T-Uf1AEeilwdSr8n7cyQ" org.eventb.core.target="STB_in"/>
 <org.eventb.core.parameter name="_52T-Uv1AEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
 <org.eventb.core.guard name="_52T-U_1AEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_52T-VP1AEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="historico(m) = 0"/>
-<org.eventb.core.action name="_F8OnQP1BEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 1" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+<org.eventb.core.guard name="_52T-VP1AEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd20" org.eventb.core.predicate="checkin ∉ historico(m) ∧ desemb ∉ historico(m)"/>
+<org.eventb.core.action name="_PIm3Rf1BEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {checkin})" org.eventb.core.generated="false" org.eventb.core.label="act43"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_PIm3QP1BEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="EVIL_check_in">
-<org.eventb.core.refinesEvent name="_-mtY8P1FEeilwdSr8n7cyQ" org.eventb.core.target="STB_evil_baggage_in"/>
+<org.eventb.core.event name="_PIm3QP1BEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="desembarque">
+<org.eventb.core.refinesEvent name="_PIm3Qf1BEeilwdSr8n7cyQ" org.eventb.core.target="STB_in"/>
 <org.eventb.core.parameter name="_PIm3Qv1BEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_PIm3Q_1BEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_PIm3RP1BEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="historico(m) = 0"/>
-<org.eventb.core.action name="_PIm3Rf1BEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 666" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
+<org.eventb.core.parameter name="_sH474f4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="tipo"/>
+<org.eventb.core.guard name="_sH474v4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_sH474_4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="tipo ∈ {conexao, destino}"/>
+<org.eventb.core.guard name="_sH475_4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd20" org.eventb.core.predicate="checkin ∉ historico(m) ∧ desemb ∉ historico(m)"/>
+<org.eventb.core.action name="_sH475P4DEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {desemb})" org.eventb.core.generated="false" org.eventb.core.label="act23"/>
+<org.eventb.core.action name="_NZ69QP4EEeilwdSr8n7cyQ" org.eventb.core.assignment="atributos(m) ≔ (atributos(m) ∪ {tipo})" org.eventb.core.generated="false" org.eventb.core.label="act24"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_KT2SUP1CEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="desembarque">
-<org.eventb.core.refinesEvent name="_-mtY8f1FEeilwdSr8n7cyQ" org.eventb.core.target="STB_in"/>
-<org.eventb.core.parameter name="_KT2SUf1CEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_KT2SUv1CEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_KT25YP1CEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="historico(m) = 0"/>
-<org.eventb.core.action name="_KT25Yf1CEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 64" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+<org.eventb.core.event name="_sH474P4DEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="inspecao">
+<org.eventb.core.parameter name="_sH475v4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+<org.eventb.core.parameter name="_NZ69Qv4EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="bem_ou_mal"/>
+<org.eventb.core.guard name="_sH476P4DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd-10" org.eventb.core.predicate="inspec ∉ historico(m)"/>
+<org.eventb.core.guard name="_NZ69Q_4EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_NZ69RP4EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="checkin ∈ historico(m)"/>
+<org.eventb.core.guard name="_ThFTUf4FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="bem_ou_mal ∈ {benigna, maligna}"/>
+<org.eventb.core.action name="_NZ7kUP4EEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {inspec})" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+<org.eventb.core.action name="_ThFTUv4FEeilwdSr8n7cyQ" org.eventb.core.assignment="atributos(m) ≔ (atributos(m) ∪ {bem_ou_mal})" org.eventb.core.generated="false" org.eventb.core.label="act10"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_isfbsP1DEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="inspecao">
-<org.eventb.core.parameter name="_isfbsf1DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_b2m-cP1CEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_isfbsv1DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="historico(m) = 1 ∨ historico(m) = 666"/>
-<org.eventb.core.action name="_mJXyQP1DEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 2" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+<org.eventb.core.event name="_sH475f4DEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="selecao">
+<org.eventb.core.parameter name="_ThFTUP4FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+<org.eventb.core.guard name="_sBMzIP4FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd-10" org.eventb.core.predicate="selec ∉ historico(m)"/>
+<org.eventb.core.guard name="_mj_uIP4GEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_mkAVM_4GEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="inspec ∈ historico(m)"/>
+<org.eventb.core.guard name="_mkAVNP4GEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="benigna ∈ atributos(m)"/>
+<org.eventb.core.action name="_fsgHUP4FEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {selec})" org.eventb.core.generated="false" org.eventb.core.label="act0001"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_yhHLAP1DEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.generated="false" org.eventb.core.label="selecao">
-<org.eventb.core.parameter name="_z-fvAP1DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_4SFEEP1DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd1" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_4SFEEf1DEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="historico(m) = 3 ∨ historico(m) = 64"/>
-<org.eventb.core.action name="_yhHyEP1DEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 4" org.eventb.core.generated="false" org.eventb.core.label="act"/>
+<org.eventb.core.event name="_NZ69Qf4EEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="embarque_aviao">
+<org.eventb.core.refinesEvent name="_WRdSwP4REeilwdSr8n7cyQ" org.eventb.core.target="STB_out"/>
+<org.eventb.core.parameter name="_mkAVMv4GEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+<org.eventb.core.guard name="_uS9EQf4OEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd-10" org.eventb.core.predicate="embarque ∉ historico(m)"/>
+<org.eventb.core.guard name="_6Gs_If4OEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd10" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_Ua8SgP4QEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd12" org.eventb.core.predicate="selec ∈ historico(m)"/>
+<org.eventb.core.guard name="_Ua8ShP4QEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd13" org.eventb.core.predicate="benigna ∈ atributos(m)"/>
+<org.eventb.core.guard name="_Ua8Shf4QEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd14" org.eventb.core.predicate="destino ∉ atributos(m)"/>
+<org.eventb.core.action name="_mkAVNf4GEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {embarque})" org.eventb.core.generated="false" org.eventb.core.label="act111"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_P9kB8P1EEeilwdSr8n7cyQ" org.eventb.core.comment="se for maliciosa vai para a ressalva" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="ressalva">
-<org.eventb.core.refinesEvent name="_qDhzUP1GEeilwdSr8n7cyQ" org.eventb.core.target="STB_evil_out"/>
-<org.eventb.core.parameter name="_P9kB8f1EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_P9kB8v1EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_P9kB8_1EEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="historico(m) = 668"/>
-<org.eventb.core.action name="_U3MDUP1EEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) +  8" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
+<org.eventb.core.invariant name="_VwOrcP4FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="invX" org.eventb.core.predicate="atributos ∈ (malas →  ℙ(atributos_mala))"/>
+<org.eventb.core.event name="_mkAVMP4GEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="est_recolhimento">
+<org.eventb.core.refinesEvent name="_mkAVMf4GEeilwdSr8n7cyQ" org.eventb.core.target="STB_out"/>
+<org.eventb.core.parameter name="_uS9EQP4OEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+<org.eventb.core.guard name="_WRd50P4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd-10" org.eventb.core.predicate="est_rec ∉ historico(m)"/>
+<org.eventb.core.guard name="_WRd50f4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd0001" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_WRd50v4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd2" org.eventb.core.predicate="selec ∈ historico(m)"/>
+<org.eventb.core.guard name="_WRd50_4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="benigna ∈ atributos(m)"/>
+<org.eventb.core.guard name="_jk10YP4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="destino ∈ atributos(m)"/>
+<org.eventb.core.action name="_e7VaAP4OEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {est_rec})" org.eventb.core.generated="false" org.eventb.core.label="act1231"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_TKL5gf1FEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="esteira_recolhimento">
-<org.eventb.core.refinesEvent name="_TKL5gv1FEeilwdSr8n7cyQ" org.eventb.core.target="STB_out"/>
-<org.eventb.core.parameter name="_TKMgkP1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_TKMgkf1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_TKMgkv1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="historico(m) = 68"/>
-<org.eventb.core.action name="_TKMgk_1FEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 16" org.eventb.core.generated="false" org.eventb.core.label="act3"/>
+<org.eventb.core.invariant name="_skrW0P4JEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv_prop1" org.eventb.core.predicate="∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;(ressalva ∈ historico(m) ∨ embarque ∈ historico(m) ∨ est_rec ∈ historico(m)) ⇒&#10;   &#9;&#9;&#9;(inspec ∈ historico(m))"/>
+<org.eventb.core.event name="_Ua8Sgf4QEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="ressalva_in">
+<org.eventb.core.refinesEvent name="_Ua8Sgv4QEeilwdSr8n7cyQ" org.eventb.core.target="STB_out"/>
+<org.eventb.core.parameter name="_Ua8Sg_4QEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
+<org.eventb.core.guard name="_jk10Yf4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd-10" org.eventb.core.predicate="ressalva ∉ historico(m)"/>
+<org.eventb.core.guard name="_jk10Yv4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd331" org.eventb.core.predicate="m ∈ malas"/>
+<org.eventb.core.guard name="_jk10Y_4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd332" org.eventb.core.predicate="inspec ∈ historico(m)"/>
+<org.eventb.core.guard name="_jk10ZP4REeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd333" org.eventb.core.predicate="maligna ∈ atributos(m)"/>
+<org.eventb.core.action name="_uS9EQv4OEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ (historico(m) ∪ {ressalva})" org.eventb.core.generated="false" org.eventb.core.label="act4441"/>
 </org.eventb.core.event>
-<org.eventb.core.event name="_-mtY8v1FEeilwdSr8n7cyQ" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.generated="false" org.eventb.core.label="embarque">
-<org.eventb.core.refinesEvent name="_-mtY8_1FEeilwdSr8n7cyQ" org.eventb.core.target="STB_out"/>
-<org.eventb.core.parameter name="_-mtY9P1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="m"/>
-<org.eventb.core.guard name="_-mtY9f1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd3" org.eventb.core.predicate="m ∈ malas"/>
-<org.eventb.core.guard name="_-mtY9v1FEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="grd4" org.eventb.core.predicate="historico(m) = 7"/>
-<org.eventb.core.action name="_-mtY9_1FEeilwdSr8n7cyQ" org.eventb.core.assignment="historico(m) ≔ historico(m) + 32" org.eventb.core.generated="false" org.eventb.core.label="act4"/>
-</org.eventb.core.event>
+<org.eventb.core.invariant name="_GXyZcP4TEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv_prop2" org.eventb.core.predicate="∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;(est_rec ∈ historico(m)) ⇒ (checkin ∉ historico(m))"/>
+<org.eventb.core.invariant name="_nIyxYP4TEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="inv_prop3" org.eventb.core.predicate="∀m· m∈ malas ∧&#10;   &#9;&#9;&#9;embarque ∈ historico(m) ⇒ (inspec ∈ historico(m))"/>
 </org.eventb.core.machineFile>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544629700749" org.eventb.texttools.text_representation="context ctx2 extends ctx1&#10;&#10;constants&#10;   threshold&#10;&#10;axioms&#10;   @axm1 threshold ∈ ℕ&#10;   @axm2 threshold &gt; 0&#10;end&#10;" version="3">
+<org.eventb.core.extendsContext name="_WbuR8P4lEeilwdSr8n7cyQ" org.eventb.core.target="ctx1"/>
+<org.eventb.core.constant name="_Wbu5AP4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="threshold"/>
+<org.eventb.core.axiom name="_Wbu5Af4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="threshold ∈ ℕ"/>
+<org.eventb.core.axiom name="_Wbu5Av4lEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="threshold &gt; 0"/>
+</org.eventb.core.contextFile>
