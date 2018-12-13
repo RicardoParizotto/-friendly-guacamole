@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544633288036" org.eventb.texttools.text_representation="context ctx1 extends ctx0&#10;&#10;sets&#10;&#9;locais&#10;&#9;atributos_mala&#10;&#10;constants&#10;&#9;mala&#10;&#9;malas&#10;&#10;&#9;// LOCAIS&#10;&#9;checkin&#10;&#9;inspec&#10;&#9;selec&#10;&#9;ressalva&#10;&#9;est_rec&#10;&#9;embarque&#10;&#9;desemb&#10;&#10;&#9;// ATRIBUTOS&#10;&#9;benigna&#10;&#9;maligna&#10;&#10;&#9;conexao&#10;&#9;destino&#10;&#10;&#10;axioms&#10;&#9;@axm1 malas ⊆ ℕ&#10;    @axm2 mala ∈ malas&#10;    @axm3 locais = {checkin, inspec, selec, ressalva, est_rec, embarque, desemb}&#10;    @axm4 atributos_mala = {benigna, maligna, conexao, destino}&#10;    @axm5 ∅  ⊈ malas&#10;end&#10;" version="3">
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd" org.eventb.core.generated="false" org.eventb.texttools.text_lastmodified="1544705014413" org.eventb.texttools.text_representation="context ctx1 extends ctx0&#10;&#10;sets&#10;&#9;locais&#10;&#9;atributos_mala&#10;&#10;constants&#10;&#9;mala&#10;&#9;malas&#10;&#10;   //flags inicio e fim&#10;    inicio&#10;    atributo_inicial&#10;&#10;&#9;// LOCAIS&#10;&#9;checkin&#10;&#9;inspec&#10;&#9;selec&#10;&#9;ressalva&#10;&#9;est_rec&#10;&#9;embarque&#10;&#9;desemb&#10;&#10;&#9;// ATRIBUTOS&#10;&#9;benigna&#10;&#9;maligna&#10;&#10;&#9;conexao&#10;&#9;destino&#10;&#10;&#10;axioms&#10;&#9;@axm1 malas ⊆ ℕ&#10;    @axm2 mala ∈ malas&#10;    @axm3 locais = {inicio, checkin, inspec, selec, ressalva, est_rec, embarque, desemb}&#10;    @axm4 atributos_mala = {atributo_inicial, benigna, maligna, conexao, destino}&#10;    @axm5 malas ≠ ∅&#10;&#10;&#10;end&#10;" version="3">
 <org.eventb.core.extendsContext name="_zgDekPoZEeim8M1HIqvP6g" org.eventb.core.target="ctx0"/>
 <org.eventb.core.constant name="_VhicYPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.identifier="mala"/>
 <org.eventb.core.axiom name="_VhjDcPoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm1" org.eventb.core.predicate="malas ⊆ ℕ"/>
 <org.eventb.core.axiom name="_VhjDcfoZEeim8M1HIqvP6g" org.eventb.core.generated="false" org.eventb.core.label="axm2" org.eventb.core.predicate="mala ∈ malas"/>
 <org.eventb.core.carrierSet name="_89FbkP38EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="locais"/>
-<org.eventb.core.constant name="_DE_N8P39EeilwdSr8n7cyQ" org.eventb.core.comment="LOCAIS" org.eventb.core.generated="false" org.eventb.core.identifier="malas"/>
-<org.eventb.core.axiom name="_Z6MEEP39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm3" org.eventb.core.predicate="locais = {checkin, inspec, selec, ressalva, est_rec, embarque, desemb}"/>
-<org.eventb.core.constant name="_gLm-0P39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="checkin"/>
-<org.eventb.core.constant name="_gLm-0f39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="inspec"/>
-<org.eventb.core.constant name="_gLm-0v39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="selec"/>
-<org.eventb.core.constant name="_gLm-0_39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="ressalva"/>
-<org.eventb.core.constant name="_gLm-1P39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="est_rec"/>
-<org.eventb.core.constant name="_gLm-1f39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="embarque"/>
-<org.eventb.core.constant name="_gLm-1v39EeilwdSr8n7cyQ" org.eventb.core.comment="ATRIBUTOS" org.eventb.core.generated="false" org.eventb.core.identifier="desemb"/>
+<org.eventb.core.constant name="_DE_N8P39EeilwdSr8n7cyQ" org.eventb.core.comment="flags inicio e fim" org.eventb.core.generated="false" org.eventb.core.identifier="malas"/>
+<org.eventb.core.axiom name="_Z6MEEP39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm3" org.eventb.core.predicate="locais = {inicio, checkin, inspec, selec, ressalva, est_rec, embarque, desemb}"/>
+<org.eventb.core.constant name="_gLm-0P39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="inicio"/>
+<org.eventb.core.constant name="_gLm-0f39EeilwdSr8n7cyQ" org.eventb.core.comment="LOCAIS" org.eventb.core.generated="false" org.eventb.core.identifier="atributo_inicial"/>
+<org.eventb.core.constant name="_gLm-0v39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="checkin"/>
+<org.eventb.core.constant name="_gLm-0_39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="inspec"/>
+<org.eventb.core.constant name="_gLm-1P39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="selec"/>
+<org.eventb.core.constant name="_gLm-1f39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="ressalva"/>
+<org.eventb.core.constant name="_gLm-1v39EeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="est_rec"/>
 <org.eventb.core.carrierSet name="_XjRcwP4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="atributos_mala"/>
-<org.eventb.core.constant name="_XjRcwf4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="benigna"/>
-<org.eventb.core.constant name="_XjRcwv4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="maligna"/>
-<org.eventb.core.constant name="_XjRcw_4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="conexao"/>
-<org.eventb.core.constant name="_XjRcxP4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="destino"/>
-<org.eventb.core.axiom name="_XjRcxf4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm4" org.eventb.core.predicate="atributos_mala = {benigna, maligna, conexao, destino}"/>
-<org.eventb.core.axiom name="_s-zjsP4tEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm5" org.eventb.core.predicate="∅  ⊈ malas"/>
+<org.eventb.core.constant name="_XjRcwf4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="embarque"/>
+<org.eventb.core.constant name="_XjRcwv4NEeilwdSr8n7cyQ" org.eventb.core.comment="ATRIBUTOS" org.eventb.core.generated="false" org.eventb.core.identifier="desemb"/>
+<org.eventb.core.constant name="_XjRcw_4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="benigna"/>
+<org.eventb.core.constant name="_XjRcxP4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.identifier="maligna"/>
+<org.eventb.core.axiom name="_XjRcxf4NEeilwdSr8n7cyQ" org.eventb.core.generated="false" org.eventb.core.label="axm4" org.eventb.core.predicate="atributos_mala = {atributo_inicial, benigna, maligna, conexao, destino}"/>
+<org.eventb.core.axiom name="_Sf51AP7HEeiyvo1veVAl4w" org.eventb.core.generated="false" org.eventb.core.label="axm5" org.eventb.core.predicate="malas ≠ ∅"/>
+<org.eventb.core.constant name="_qIgBgP7IEeiyvo1veVAl4w" org.eventb.core.generated="false" org.eventb.core.identifier="conexao"/>
+<org.eventb.core.constant name="_5ooHgP7IEeiyvo1veVAl4w" org.eventb.core.generated="false" org.eventb.core.identifier="destino"/>
 </org.eventb.core.contextFile>
